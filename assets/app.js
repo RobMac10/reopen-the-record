@@ -43,6 +43,22 @@
   function caseByNum(num) {
     return BOOK.cases.find((c) => c.num === num);
   }
+
+  function caseYears(c) {
+    return (c.years && c.years.length) ? c.years : [c.year];
+  }
+  function yearLabel(c) {
+    return c.yearLabel || ("Year " + c.year);
+  }
+  function isStartCase(c) {
+    return !!(c && BOOK.startHere && c.num === BOOK.startHere.case);
+  }
+  function resolveCaseNum(n) {
+    n = Number(n);
+    if (caseByNum(n)) return n;
+    const leg = BOOK.legacyCases && BOOK.legacyCases[String(n)];
+    return leg ? Number(leg) : n;
+  }
   function clamp(n) {
     n = Number(n) || 1;
     return Math.max(1, Math.min(TOTAL, Math.round(n)));
@@ -59,8 +75,9 @@
     if (m) return { view: "reader", page: clamp(m[1]) };
     m = raw.match(/^case=(\d+)/i);
     if (m) {
-      const c = caseByNum(Number(m[1]));
+      const c = caseByNum(resolveCaseNum(m[1]));
       if (c && c.written) return { view: "reader", page: c.start };
+      if (c) return { view: "contents" };
     }
     return { view: "cover" };
   }
@@ -113,18 +130,18 @@
       '<a class="start-card" href="#p=' + start.page + '">' +
         '<img src="assets/thumbs/p' + pad(start.page) + '.webp" width="420" alt="Start here: In Case of Emergency.">' +
         "<div><strong>" + escapeHtml(start.title) + "</strong>" +
-        "<p>" + escapeHtml(start.blurb) + " Then open Case 42.</p></div></a>"
+        "<p>" + escapeHtml(start.blurb) + " Then open Case " + start.case + ".</p></div></a>"
     );
     const written = BOOK.cases.filter((c) => c.written);
-    // Show in year then case order
-    written.sort((a, b) => a.year - b.year || a.num - b.num);
+    // Chronological case order (the printed book order)
+    written.sort((a, b) => a.num - b.num);
     written.forEach((c) => {
-      const thumbPage = c.num === 42 ? (c.envelope || (start.page + 1)) : c.envelope || c.start;
+      const thumbPage = isStartCase(c) ? (c.envelope || (start.page + 1)) : c.envelope || c.start;
       const thumb = "assets/thumbs/p" + pad(thumbPage) + ".webp";
-      const href = c.num === 42 ? "#p=" + (c.envelope || (start.page + 1)) : "#p=" + c.start;
+      const href = isStartCase(c) ? "#p=" + (c.envelope || (start.page + 1)) : "#p=" + c.start;
       bits.push(
         '<a href="' + href + '"><img src="' + thumb + '" alt="">' +
-        "<span>Case " + c.num + " · Year " + c.year + "<br>" + escapeHtml(c.title) + "</span></a>"
+        "<span>Case " + c.num + " · " + escapeHtml(yearLabel(c)) + "<br>" + escapeHtml(c.title) + "</span></a>"
       );
     });
     host.innerHTML = bits.join("");
@@ -136,6 +153,7 @@
     const label = {
       Outlined: "Coming soon · outlined",
       Proposed: "Coming soon · proposed",
+      "Coming soon": "Coming soon",
       "From Queenslander": "Coming soon",
       "From Frontier Friction": "Coming soon",
     }[c.status] || "Coming soon";
@@ -147,17 +165,19 @@
     if (!host || host.dataset.ready) return;
     const chunks = [];
     YEAR_ORDER.forEach((year) => {
-      const list = BOOK.cases.filter((c) => c.year === year);
-      if (!list.length) return;
+      const list = BOOK.cases.filter((c) => caseYears(c).indexOf(year) !== -1);
       const writtenN = list.filter((c) => c.written).length;
       chunks.push(
         '<section class="year-block y' + year + '" aria-labelledby="year-' + year + '">' +
         '<h2 class="year-label" id="year-' + year + '"><b>Year ' + year + "</b>" +
-        "<span>" + list.length + " cases · " + writtenN + " written</span></h2>" +
+        "<span>" + (list.length ? (list.length + " cases · " + writtenN + " written") : "No cases in this sample") + "</span></h2>" +
         '<ul class="case-list">'
       );
+      if (!list.length) {
+        chunks.push('<li><div class="case-row soon y' + year + '"><div><p>No cases in this sample.</p></div></div></li>');
+      }
       list.forEach((c) => {
-        if (c.num === 42) {
+        if (isStartCase(c)) {
           const s = BOOK.startHere;
           chunks.push(
             '<li><a class="start-row" href="#p=' + s.page + '">' +
@@ -182,9 +202,9 @@
           (c.codes ? '<span class="codes">' + escapeHtml(c.codes) + "</span>" : "") +
           "</p></div>";
         if (c.written) {
-          const filePage = c.num === 42 ? (c.envelope || (c.start + 1)) : c.start;
+          const filePage = isStartCase(c) ? (c.envelope || (c.start + 1)) : c.start;
           const href = "#p=" + filePage;
-          const range = c.num === 42 ? ("the case file, p. " + filePage + "–" + c.end) : ("pages " + c.start + "–" + c.end);
+          const range = isStartCase(c) ? ("the case file, p. " + filePage + "–" + c.end) : ("pages " + c.start + "–" + c.end);
           chunks.push(
             '<li><a class="case-row y' + year + '" href="' + href + '">' + inner +
             '<div class="side"><span class="open">Open ' + range + " →</span></div></a></li>"
@@ -212,20 +232,23 @@
     opts.push('<option value="p-2">Title page (p. 2)</option>');
     opts.push('<option value="p-3">How a case file works (p. 3)</option>');
     opts.push('<option value="p-4">Printed contents (p. 4)</option>');
+    opts.push('<option value="p-6">By year level (p. 6)</option>');
     YEAR_ORDER.forEach((year) => {
-      const list = BOOK.cases.filter((c) => c.written && c.year === year);
+      const list = BOOK.cases.filter((c) => c.written && caseYears(c).indexOf(year) !== -1);
       if (!list.length) return;
       opts.push('<optgroup label="Year ' + year + '">');
       list.forEach((c) => {
-        if (c.num === 42) {
+        if (isStartCase(c) && year === c.year) {
           const s = BOOK.startHere;
           const env = c.envelope || (s.page + 1);
           opts.push(
             '<option value="p-' + s.page + '">Start here: In Case of Emergency (p. ' + s.page + ')</option>'
           );
           opts.push(
-            '<option value="p-' + env + '">Case 42 · ' + escapeHtml(c.title) + " (p. " + env + ")</option>"
+            '<option value="p-' + env + '">Case ' + c.num + " · " + escapeHtml(c.title) + " (p. " + env + ")</option>"
           );
+        } else if (isStartCase(c)) {
+          // already listed under its primary year
         } else {
           opts.push(
             '<option value="p-' + c.start + '">Case ' + c.num + " · " +
@@ -250,12 +273,16 @@
       const cnum = caseOn(page);
       if (cnum) {
         const c = caseByNum(cnum);
-        const start = cnum === 42 && page === 79 ? 79 : (c && c.num === 42 ? 80 : c.start);
+        const sh = BOOK.startHere;
+        let start = c && c.start;
+        if (c && sh && c.num === sh.case) {
+          start = (page === sh.page) ? sh.page : (c.envelope || (sh.page + 1));
+        }
         sel.value = "p-" + start;
       } else if (page <= 1) sel.value = "p-1";
       else if (page === 2) sel.value = "p-2";
       else if (page === 3) sel.value = "p-3";
-      else if (page >= 4 && page <= 8) sel.value = "p-4";
+      else if (page >= 4 && page <= 6) sel.value = "p-4";
       else sel.value = "contents";
     }
   }
@@ -357,11 +384,11 @@
         "Open the escape room →</a>"
       );
       bits.push(
-        '<a class="secondary" href="#p=' + (caseByNum(42).envelope || (BOOK.startHere.page + 1)) + '">Then open Case 42 →</a>'
+        '<a class="secondary" href="#p=' + (caseByNum(BOOK.startHere.case).envelope || (BOOK.startHere.page + 1)) + '">Then open Case ' + BOOK.startHere.case + ' →</a>'
       );
     } else if (cnum) {
       const c = caseByNum(cnum);
-      bits.push('<span class="case-chip">Case ' + c.num + " · Year " + c.year + " · " + escapeHtml(c.title) + "</span>");
+      bits.push('<span class="case-chip">Case ' + c.num + " · " + escapeHtml(yearLabel(c)) + " · " + escapeHtml(c.title) + "</span>");
       (c.apps || []).forEach((app) => {
         const onPage = !app.pages || app.pages.indexOf(page) !== -1;
         const cls = onPage ? "" : ' class="secondary"';
@@ -370,7 +397,7 @@
           escapeHtml(app.label) + " →</a>"
         );
       });
-    } else if (page >= 4 && page <= 8) {
+    } else if (page >= 4 && page <= 6) {
       bits.push('<a class="secondary" href="#contents">Open the interactive contents →</a>');
     }
     dock.innerHTML = bits.join("");
