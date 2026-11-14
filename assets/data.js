@@ -2,7 +2,7 @@
 window.BOOK = {
   "bookTitle": "Reopen the Record: Australian Histories",
   "tagline": "Real people. Real records. Real questions the record never settled.",
-  "pageCount": 188,
+  "pageCount": 189,
   "startHere": {
     "title": "Start here: In Case of Emergency",
     "page": 7,
@@ -337,7 +337,8 @@ window.BOOK = {
           185,
           186,
           187,
-          188
+          188,
+          189
         ],
         "blurb": "Open the Mabo case as an interactive book."
       }
@@ -903,7 +904,7 @@ window.BOOK = {
       "date": "3 June 1992",
       "written": true,
       "start": 176,
-      "end": 188,
+      "end": 189,
       "envelope": 176,
       "apps": [
         {
@@ -923,7 +924,8 @@ window.BOOK = {
             185,
             186,
             187,
-            188
+            188,
+            189
           ],
           "blurb": "Open the Mabo case as an interactive book."
         }
@@ -1107,18 +1109,19 @@ window.BOOK = {
     "174": "Page 174. Case 12. Reopen the Record: Australian Histories · sample · 174 same year, and is acknowledged as the first Aboriginal woman to complete an Australian university degree. Valadian is living: no dates on the student pages. The graduation",
     "175": "Page 175. Case 12. Reopen the Record: Australian Histories · sample · 175 methods in the movement for the civil rights of First Nations Australians, and the extent to which they contributed to change. Skills of use include comparing perspectives",
     "176": "Case 13 envelope: Mabo and terra nullius, 1992, Year 10. Draft, pending consultation.",
-    "177": "Page 177. Case 13. Reopen the Record: Australian Histories · sample · 177 History. Last period. The photocopy is dated 3 June 1992 They keep saying terra nullius like it’s a spell they already broke. I wrote it in my",
-    "178": "Page 178. Case 13. Reopen the Record: Australian Histories · sample · 178 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 Read the notebook as an interactive book Open the case on a tablet or phone. It",
-    "179": "Page 179. Case 13. Reopen the Record: Australian Histories · sample · 179 A NOTE BEFORE YOU READ This case names Torres Strait Islander people who have died, including Eddie Koiki Mabo (died 21 January 1992). Draft, pending consultation with",
-    "180": "Page 180. Case 13. Reopen the Record: Australian Histories · sample · 180 terra nullius.” Historians and some lawyers debate when the Latin phrase itself was first used in Australian law, and whether earlier official language used other words for",
-    "181": "Page 181. Case 13. Reopen the Record: Australian Histories · sample · 181 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · ASK Three witnesses Each witness is a real person, or a real set of words",
-    "182": "Page 182. Case 13. Reopen the Record: Australian Histories · sample · 182 A silhouette, not a likeness. Official judicial portraits remain in copyright. Justice Brennan Justice of the High Court of Australia · leading reasons in Mabo (No 2),",
-    "183": "Page 183. Case 13. Reopen the Record: Australian Histories · sample · 183 A document mark, not a likeness. The witness is the State of Queensland, speaking through a 1985 Act of Parliament. The State of Queensland Defendant in the",
-    "184": "Page 184. Case 13. Reopen the Record: Australian Histories · sample · 184 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · DECIDE My finding The three witness cards are Eddie Koiki Mabo, Justice Brennan, and the",
-    "185": "Page 185. Case 13. Reopen the Record: Australian Histories · sample · 185 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is",
-    "186": "Page 186. Case 13. Reopen the Record: Australian Histories · sample · 186 STILL IN DISPUTE, OR ADDED LATER 4. What the 1992 orders did, and did not do The Court recognised native title, and Meriam rights in most of",
-    "187": "Page 187. Case 13. Reopen the Record: Australian Histories · sample · 187 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · TEACHER NOTE Teacher Note This note is for the teacher. It is not a student",
-    "188": "Page 188. Case 13. Reopen the Record: Australian Histories · sample · 188 robmac10.github.io/mabo-case Super Sleuths: robmac10.github.io/mabo-case/#sleuth Mabo v Queensland (No 2) [1992] HCA 23; Mabo (No 1) [1988] HCA 69; Queensland Coast Islands Declaratory Act 1985; AIATSIS, “T"
+    "177": "Case 13 opener, first page. An italic classroom scene, then a returned exercise-book page headed History Case File · Source Response, Exhibit J: student notebook, last period Friday, Name: J., Date: 11 June, with a stapled photocopy corner dated 3 June 1992, student handwriting, and a teacher’s red-pen comments, including a tick and an underline under the Queensland Act quote.",
+    "178": "Case 13 opener, continued. The returned exercise-book page continues with the student’s uncertainty about terra nullius, a teacher’s red-pen comments, a red arrow on the strongest sentence, and a small red And? in the margin beside the last line: He never heard the judgment.",
+    "179": "Page 179. Case 13. Reopen the Record: Australian Histories · sample · 179 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 Read the notebook as an interactive book Open the case on a tablet or phone. It",
+    "180": "Page 180. Case 13. Reopen the Record: Australian Histories · sample · 180 A NOTE BEFORE YOU READ This case names Torres Strait Islander people who have died, including Eddie Koiki Mabo (died 21 January 1992). Draft, pending consultation with",
+    "181": "Page 181. Case 13. Reopen the Record: Australian Histories · sample · 181 terra nullius.” Historians and some lawyers debate when the Latin phrase itself was first used in Australian law, and whether earlier official language used other words for",
+    "182": "Page 182. Case 13. Reopen the Record: Australian Histories · sample · 182 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · ASK Three witnesses Each witness is a real person, or a real set of words",
+    "183": "Page 183. Case 13. Reopen the Record: Australian Histories · sample · 183 A silhouette, not a likeness. Official judicial portraits remain in copyright. Justice Brennan Justice of the High Court of Australia · leading reasons in Mabo (No 2),",
+    "184": "Page 184. Case 13. Reopen the Record: Australian Histories · sample · 184 A document mark, not a likeness. The witness is the State of Queensland, speaking through a 1985 Act of Parliament. The State of Queensland Defendant in the",
+    "185": "Page 185. Case 13. Reopen the Record: Australian Histories · sample · 185 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · DECIDE My finding The three witness cards are Eddie Koiki Mabo, Justice Brennan, and the",
+    "186": "Page 186. Case 13. Reopen the Record: Australian Histories · sample · 186 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is",
+    "187": "Page 187. Case 13. Reopen the Record: Australian Histories · sample · 187 STILL IN DISPUTE, OR ADDED LATER 4. What the 1992 orders did, and did not do The Court recognised native title, and Meriam rights in most of",
+    "188": "Page 188. Case 13. Reopen the Record: Australian Histories · sample · 188 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · TEACHER NOTE Teacher Note This note is for the teacher. It is not a student",
+    "189": "Page 189. Case 13. Reopen the Record: Australian Histories · sample · 189 Resources Students can also read the notebook as an interactive book, on a tablet or phone. The page on screen is the same returned exercise-book page as"
   },
   "pageText": {
     "1": "",
@@ -1297,18 +1300,19 @@ window.BOOK = {
     "174": "Page 174. Case 12. Reopen the Record: Australian Histories · sample · 174 same year, and is acknowledged as the first Aboriginal woman to complete an Australian university degree. Valadian is living: no dates on the student pages. The graduation claim is omitted from the student card. A misattribut",
     "175": "Page 175. Case 12. Reopen the Record: Australian Histories · sample · 175 methods in the movement for the civil rights of First Nations Australians, and the extent to which they contributed to change. Skills of use include comparing perspectives in sources and analysing contested interpretations. P",
     "176": "Case 13 envelope.",
-    "177": "Page 177. Case 13. Reopen the Record: Australian Histories · sample · 177 History. Last period. The photocopy is dated 3 June 1992 They keep saying terra nullius like it’s a spell they already broke. I wrote it in my book and then I looked at the date. 3 June 1992. He was already dead. The first sh",
-    "178": "Page 178. Case 13. Reopen the Record: Australian Histories · sample · 178 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 Read the notebook as an interactive book Open the case on a tablet or phone. It is the same typographic notebook, the same three witnesses, and the same finding box. The Q",
-    "179": "Page 179. Case 13. Reopen the Record: Australian Histories · sample · 179 A NOTE BEFORE YOU READ This case names Torres Strait Islander people who have died, including Eddie Koiki Mabo (died 21 January 1992). Draft, pending consultation with the Meriam people of Mer, and with AIATSIS guidance. No p",
-    "180": "Page 180. Case 13. Reopen the Record: Australian Histories · sample · 180 terra nullius.” Historians and some lawyers debate when the Latin phrase itself was first used in Australian law, and whether earlier official language used other words for a similar idea. That debate is flagged, not settled,",
-    "181": "Page 181. Case 13. Reopen the Record: Australian Histories · sample · 181 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · ASK Three witnesses Each witness is a real person, or a real set of words from the record. A period portrait is used where one exists and is free to reuse. Otherwise you",
-    "182": "Page 182. Case 13. Reopen the Record: Australian Histories · sample · 182 A silhouette, not a likeness. Official judicial portraits remain in copyright. Justice Brennan Justice of the High Court of Australia · leading reasons in Mabo (No 2), 3 June 1992 A written judgment, not a speech from the str",
-    "183": "Page 183. Case 13. Reopen the Record: Australian Histories · sample · 183 A document mark, not a likeness. The witness is the State of Queensland, speaking through a 1985 Act of Parliament. The State of Queensland Defendant in the Mabo litigation · Parliament of Queensland, 1985 The government’s ca",
-    "184": "Page 184. Case 13. Reopen the Record: Australian Histories · sample · 184 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · DECIDE My finding The three witness cards are Eddie Koiki Mabo, Justice Brennan, and the State of Queensland, speaking through the 1985 Act. There is no answer at the ba",
-    "185": "Page 185. Case 13. Reopen the Record: Australian Histories · sample · 185 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. This file is a draft, pending consultation w",
-    "186": "Page 186. Case 13. Reopen the Record: Australian Histories · sample · 186 STILL IN DISPUTE, OR ADDED LATER 4. What the 1992 orders did, and did not do The Court recognised native title, and Meriam rights in most of the Murray Islands, subject to some particular Crown interests. The Native Title Act",
-    "187": "Page 187. Case 13. Reopen the Record: Australian Histories · sample · 187 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · TEACHER NOTE Teacher Note This note is for the teacher. It is not a student page. The user’s name is kept off the student pages and off the app. What’s true about the op",
-    "188": "Page 188. Case 13. Reopen the Record: Australian Histories · sample · 188 robmac10.github.io/mabo-case Super Sleuths: robmac10.github.io/mabo-case/#sleuth Mabo v Queensland (No 2) [1992] HCA 23; Mabo (No 1) [1988] HCA 69; Queensland Coast Islands Declaratory Act 1985; AIATSIS, “The Mabo Case”; Nati"
+    "177": "Page 177. Case 13. Draft, pending consultation with the Meriam people of Mer, and with AIATSIS guidance. Last period. Friday. The folder’s almost empty. Miss is still walking the aisle, papers face-down so no one can see the red. Mine lands. I flip it. The photocopy’s still stapled on the back — 3 ",
+    "178": "Page 178. Case 13. I don’t know how a place with people on it gets called nobody’s land. I don’t even know if they used those Latin words at the time. Miss said historians still argue about the phrase. She didn’t say it like it was a relief. Teacher’s comment: Historians still debate when and how t",
+    "179": "Page 179. Case 13. Reopen the Record: Australian Histories · sample · 179 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 Read the notebook as an interactive book Open the case on a tablet or phone. It is the same returned exercise-book page, the same three witnesses, and the same finding box",
+    "180": "Page 180. Case 13. Reopen the Record: Australian Histories · sample · 180 A NOTE BEFORE YOU READ This case names Torres Strait Islander people who have died, including Eddie Koiki Mabo (died 21 January 1992). Draft, pending consultation with the Meriam people of Mer, and with AIATSIS guidance. No p",
+    "181": "Page 181. Case 13. Reopen the Record: Australian Histories · sample · 181 terra nullius.” Historians and some lawyers debate when the Latin phrase itself was first used in Australian law, and whether earlier official language used other words for a similar idea. That debate is flagged, not settled,",
+    "182": "Page 182. Case 13. Reopen the Record: Australian Histories · sample · 182 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · ASK Three witnesses Each witness is a real person, or a real set of words from the record. A period portrait is used where one exists and is free to reuse. Otherwise you",
+    "183": "Page 183. Case 13. Reopen the Record: Australian Histories · sample · 183 A silhouette, not a likeness. Official judicial portraits remain in copyright. Justice Brennan Justice of the High Court of Australia · leading reasons in Mabo (No 2), 3 June 1992 A written judgment, not a speech from the str",
+    "184": "Page 184. Case 13. Reopen the Record: Australian Histories · sample · 184 A document mark, not a likeness. The witness is the State of Queensland, speaking through a 1985 Act of Parliament. The State of Queensland Defendant in the Mabo litigation · Parliament of Queensland, 1985 The government’s ca",
+    "185": "Page 185. Case 13. Reopen the Record: Australian Histories · sample · 185 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · DECIDE My finding The three witness cards are Eddie Koiki Mabo, Justice Brennan, and the State of Queensland, speaking through the 1985 Act. There is no answer at the ba",
+    "186": "Page 186. Case 13. Reopen the Record: Australian Histories · sample · 186 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. This file is a draft, pending consultation w",
+    "187": "Page 187. Case 13. Reopen the Record: Australian Histories · sample · 187 STILL IN DISPUTE, OR ADDED LATER 4. What the 1992 orders did, and did not do The Court recognised native title, and Meriam rights in most of the Murray Islands, subject to some particular Crown interests. The Native Title Act",
+    "188": "Page 188. Case 13. Reopen the Record: Australian Histories · sample · 188 CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · TEACHER NOTE Teacher Note This note is for the teacher. It is not a student page. The user’s name is kept off the student pages and off the app. What’s true about the op",
+    "189": "Page 189. Case 13. Reopen the Record: Australian Histories · sample · 189 Resources Students can also read the notebook as an interactive book, on a tablet or phone. The page on screen is the same returned exercise-book page as the pages in this book. The app is built and ready; it should be publis"
   },
   "pageCases": {
     "1": null,
@@ -1498,7 +1502,8 @@ window.BOOK = {
     "185": 13,
     "186": 13,
     "187": 13,
-    "188": 13
+    "188": 13,
+    "189": 13
   },
   "legacyCases": {
     "23": 4,
