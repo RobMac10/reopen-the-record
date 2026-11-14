@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Reopen the Record: Australian Histories</title>
+  <meta name="description" content="A sample book of forty-two Australian history case files for Years 4 to 10. Real people. Real records. Real questions the record never settled.">
+  <meta name="theme-color" content="#4a2e1b">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://robmac10.github.io/reopen-the-record/">
+  <meta property="og:title" content="Reopen the Record: Australian Histories">
+  <meta property="og:description" content="Real people. Real records. Real questions the record never settled. A sample book of history case files for Years 4 to 10.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://robmac10.github.io/reopen-the-record/">
+  <meta property="og:image" content="https://robmac10.github.io/reopen-the-record/assets/thumbs/p001.webp">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the main content</a>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="#cover">Reopen the Record <small>Australian Histories</small></a>
+      <nav aria-label="Book">
+        <a href="#cover" data-nav="cover">Cover</a>
+        <a href="#contents" data-nav="contents">Contents</a>
+        <a href="#p=1" data-nav="reader">Open the book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <section id="view-cover" aria-labelledby="cover-title">
+      <div class="wrap">
+        <div class="cover-grid">
+          <a class="cover-book" href="#p=1" aria-label="Open the book at the cover">
+            <img src="assets/pages/p001.webp" width="1323" height="1871" alt="Book cover: a manila exhibit envelope titled Reopen the Record: Australian Histories, Years 4 to 10, stamped Case Reopened.">
+          </a>
+          <div class="cover-copy">
+            <p class="kicker">History case files · Years 4 to 10</p>
+            <h1 id="cover-title">Reopen the Record <em>Australian Histories</em></h1>
+            <p class="tagline">Real people. Real records. Real questions the record never settled.</p>
+            <p>One book, forty-two cases. Seven sample cases are written and can be read here, page by page. The others are coming soon. Where a case has a companion app, the live link is in the reader.</p>
+            <div class="cover-actions">
+              <a class="btn big" href="#p=1">Open the book</a>
+              <a class="btn alt big" href="#contents">Contents</a>
+            </div>
+            <div class="cover-qr">
+              <img src="assets/qr-book.png" width="860" height="860" alt="QR code for https://robmac10.github.io/reopen-the-record/">
+              <p>Scan to open this book on a phone.<br><span class="note">robmac10.github.io/reopen-the-record</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="written-strip">
+          <h2>Written sample cases</h2>
+          <p class="note">Open a case in the reader, or start with the escape room before the wreck of the <em>Batavia</em>.</p>
+          <div class="strip" id="written-strip"><!-- filled by app.js --></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-contents" aria-labelledby="contents-title" hidden>
+      <div class="wrap">
+        <div class="contents-intro">
+          <p class="kicker">Years 4 to 10 · Australian Curriculum: History (v9)</p>
+          <h1 id="contents-title">Contents</h1>
+          <p>Forty-two cases after adding the wreck of the <em>Batavia</em>. Written sample cases open in the reader. Outlined and proposed cases are marked coming soon.</p>
+          <p class="note"><a href="#p=3">How a case file works</a> · <a href="#p=4">Printed contents pages</a></p>
+        </div>
+        <div id="contents-list"><!-- filled by app.js --></div>
+      </div>
+    </section>
+
+    <section id="view-reader" aria-labelledby="reader-title" hidden>
+      <h2 id="reader-title" class="sr">Book reader</h2>
+      <div class="toolbar">
+        <div class="inner">
+          <a class="tool" href="#contents">Contents</a>
+          <label class="sr" for="jump">Jump to a case</label>
+          <select id="jump" class="jump"></select>
+          <span class="grow"></span>
+          <button type="button" id="btn-prev" aria-label="Previous page">← Prev</button>
+          <form class="page-input" id="page-form">
+            <label class="sr" for="page-num">Page number</label>
+            <input id="page-num" type="number" min="1" max="106" value="1" inputmode="numeric">
+            <span class="of">of <span id="page-total">106</span></span>
+          </form>
+          <button type="button" id="btn-next" aria-label="Next page">Next →</button>
+          <button type="button" id="btn-text" aria-pressed="false">Text view</button>
+          <button type="button" id="btn-spread" class="wide-only" aria-pressed="false">Two pages</button>
+        </div>
+      </div>
+
+      <div class="stage" id="stage">
+        <button type="button" class="edge prev" id="edge-prev" aria-label="Previous page">‹</button>
+        <div class="book" id="book" aria-live="polite">
+          <div class="leaf left" id="leaf-left" hidden>
+            <img id="img-left" alt="">
+          </div>
+          <div class="leaf right active" id="leaf-right">
+            <img id="img-right" alt="">
+          </div>
+        </div>
+        <button type="button" class="edge next" id="edge-next" aria-label="Next page">›</button>
+      </div>
+
+      <div id="text-view" class="text-view" hidden>
+        <div class="text-nav">
+          <button type="button" class="btn quiet" id="text-prev">← Previous page</button>
+          <button type="button" class="btn quiet" id="text-next">Next page →</button>
+        </div>
+        <article id="text-article"></article>
+      </div>
+
+      <div class="dock" id="dock" aria-live="polite"></div>
+    </section>
+
+  </main>
+
+  <footer class="site">
+    <p>Reopen the Record: Australian Histories · sample · Years 4 to 10. Forty-two cases. This is the book as a web app, not a printed edition.</p>
+  </footer>
+
+  <noscript>
+    <p style="padding:1em;text-align:center">This book needs JavaScript to turn the pages. The intended address is https://robmac10.github.io/reopen-the-record/</p>
+  </noscript>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
