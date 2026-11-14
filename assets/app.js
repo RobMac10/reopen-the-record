@@ -111,7 +111,7 @@
     const bits = [];
     bits.push(
       '<a class="start-card" href="#p=' + start.page + '">' +
-        '<img src="assets/thumbs/p079.webp" width="420" alt="Start here: In Case of Emergency.">' +
+        '<img src="assets/thumbs/p' + pad(start.page) + '.webp" width="420" alt="Start here: In Case of Emergency.">' +
         "<div><strong>" + escapeHtml(start.title) + "</strong>" +
         "<p>" + escapeHtml(start.blurb) + " Then open Case 42.</p></div></a>"
     );
@@ -119,9 +119,9 @@
     // Show in year then case order
     written.sort((a, b) => a.year - b.year || a.num - b.num);
     written.forEach((c) => {
-      const thumbPage = c.num === 42 ? 80 : c.envelope || c.start;
+      const thumbPage = c.num === 42 ? (c.envelope || (start.page + 1)) : c.envelope || c.start;
       const thumb = "assets/thumbs/p" + pad(thumbPage) + ".webp";
-      const href = c.num === 42 ? "#p=80" : "#p=" + c.start;
+      const href = c.num === 42 ? "#p=" + (c.envelope || (start.page + 1)) : "#p=" + c.start;
       bits.push(
         '<a href="' + href + '"><img src="' + thumb + '" alt="">' +
         "<span>Case " + c.num + " · Year " + c.year + "<br>" + escapeHtml(c.title) + "</span></a>"
@@ -148,6 +148,7 @@
     const chunks = [];
     YEAR_ORDER.forEach((year) => {
       const list = BOOK.cases.filter((c) => c.year === year);
+      if (!list.length) return;
       const writtenN = list.filter((c) => c.written).length;
       chunks.push(
         '<section class="year-block y' + year + '" aria-labelledby="year-' + year + '">' +
@@ -160,7 +161,7 @@
           const s = BOOK.startHere;
           chunks.push(
             '<li><a class="start-row" href="#p=' + s.page + '">' +
-            '<img src="assets/thumbs/p079.webp" width="72" alt="">' +
+            '<img src="assets/thumbs/p' + pad(s.page) + '.webp" width="72" alt="">' +
             "<div><h3>" + escapeHtml(s.title) + "</h3>" +
             "<p>" + escapeHtml(s.blurb) + "</p>" +
             '<p class="meta"><span class="badge app">Escape room</span></p></div>' +
@@ -181,8 +182,9 @@
           (c.codes ? '<span class="codes">' + escapeHtml(c.codes) + "</span>" : "") +
           "</p></div>";
         if (c.written) {
-          const href = c.num === 42 ? "#p=80" : "#p=" + c.start;
-          const range = c.num === 42 ? ("the case file, p. 80–" + c.end) : ("pages " + c.start + "–" + c.end);
+          const filePage = c.num === 42 ? (c.envelope || (c.start + 1)) : c.start;
+          const href = "#p=" + filePage;
+          const range = c.num === 42 ? ("the case file, p. " + filePage + "–" + c.end) : ("pages " + c.start + "–" + c.end);
           chunks.push(
             '<li><a class="case-row y' + year + '" href="' + href + '">' + inner +
             '<div class="side"><span class="open">Open ' + range + " →</span></div></a></li>"
@@ -216,11 +218,13 @@
       opts.push('<optgroup label="Year ' + year + '">');
       list.forEach((c) => {
         if (c.num === 42) {
+          const s = BOOK.startHere;
+          const env = c.envelope || (s.page + 1);
           opts.push(
-            '<option value="p-79">Start here: In Case of Emergency (p. 79)</option>'
+            '<option value="p-' + s.page + '">Start here: In Case of Emergency (p. ' + s.page + ')</option>'
           );
           opts.push(
-            '<option value="p-80">Case 42 · ' + escapeHtml(c.title) + " (p. 80)</option>"
+            '<option value="p-' + env + '">Case 42 · ' + escapeHtml(c.title) + " (p. " + env + ")</option>"
           );
         } else {
           opts.push(
@@ -353,7 +357,7 @@
         "Open the escape room →</a>"
       );
       bits.push(
-        '<a class="secondary" href="#p=80">Then open Case 42 →</a>'
+        '<a class="secondary" href="#p=' + (caseByNum(42).envelope || (BOOK.startHere.page + 1)) + '">Then open Case 42 →</a>'
       );
     } else if (cnum) {
       const c = caseByNum(cnum);

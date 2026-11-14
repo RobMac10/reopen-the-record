@@ -2,10 +2,10 @@
 window.BOOK = {
   "bookTitle": "Reopen the Record: Australian Histories",
   "tagline": "Real people. Real records. Real questions the record never settled.",
-  "pageCount": 106,
+  "pageCount": 117,
   "startHere": {
     "title": "Start here: In Case of Emergency",
-    "page": 79,
+    "page": 76,
     "case": 42,
     "blurb": "Four friends. One locked museum. Eight marks to find before the door will open. Do the escape room first, then open the case file.",
     "app": {
@@ -21,15 +21,15 @@ window.BOOK = {
         "label": "Nell’s Diary",
         "url": "https://robmac10.github.io/nells-diary/",
         "pages": [
+          7,
+          8,
+          9,
           10,
           11,
           12,
           13,
           14,
-          15,
-          16,
-          17,
-          18
+          15
         ],
         "blurb": "Read Nell’s Diary as an interactive book."
       },
@@ -38,16 +38,16 @@ window.BOOK = {
         "label": "Who Fired First?",
         "url": "https://robmac10.github.io/who-fired-first/",
         "pages": [
+          15,
+          16,
+          17,
           18,
           19,
           20,
           21,
           22,
           23,
-          24,
-          25,
-          26,
-          27
+          24
         ],
         "blurb": "Open the Eureka case file."
       }
@@ -58,6 +58,9 @@ window.BOOK = {
         "label": "Eliza Fraser case",
         "url": "https://robmac10.github.io/eliza-fraser-case/",
         "pages": [
+          25,
+          26,
+          27,
           28,
           29,
           30,
@@ -66,10 +69,7 @@ window.BOOK = {
           33,
           34,
           35,
-          36,
-          37,
-          38,
-          39
+          36
         ],
         "blurb": "Open the Eliza Fraser case as an interactive book."
       }
@@ -80,6 +80,9 @@ window.BOOK = {
         "label": "Freedom Ride case",
         "url": "https://robmac10.github.io/freedom-ride-case/",
         "pages": [
+          37,
+          38,
+          39,
           40,
           41,
           42,
@@ -88,10 +91,7 @@ window.BOOK = {
           45,
           46,
           47,
-          48,
-          49,
-          50,
-          51
+          48
         ],
         "blurb": "Open the Freedom Ride case as an interactive book."
       }
@@ -102,6 +102,9 @@ window.BOOK = {
         "label": "Burke and Wills case",
         "url": "https://robmac10.github.io/burke-wills-case/",
         "pages": [
+          49,
+          50,
+          51,
           52,
           53,
           54,
@@ -111,10 +114,7 @@ window.BOOK = {
           58,
           59,
           60,
-          61,
-          62,
-          63,
-          64
+          61
         ],
         "blurb": "Open the Burke and Wills case as an interactive book."
       }
@@ -125,6 +125,9 @@ window.BOOK = {
         "label": "Perth Mint case",
         "url": "https://robmac10.github.io/perth-mint-case/",
         "pages": [
+          62,
+          63,
+          64,
           65,
           66,
           67,
@@ -135,12 +138,9 @@ window.BOOK = {
           72,
           73,
           74,
-          75,
-          76,
-          77,
-          78
+          75
         ],
-        "blurb": "Open the Perth Mint Swindle case as an interactive book."
+        "blurb": "Open the Perth Mint case as an interactive book."
       }
     ],
     "42": [
@@ -149,16 +149,19 @@ window.BOOK = {
         "label": "In Case of Emergency",
         "url": "https://robmac10.github.io/batavia-escape-room/",
         "pages": [
-          79,
-          80
+          76
         ],
         "blurb": "Do the escape room first, then open the case file."
       },
       {
         "id": "batavia-case",
-        "label": "The Unfinished Voyage",
+        "label": "Batavia case",
         "url": "https://robmac10.github.io/batavia-case/",
         "pages": [
+          77,
+          78,
+          79,
+          80,
           81,
           82,
           83,
@@ -167,10 +170,7 @@ window.BOOK = {
           86,
           87,
           88,
-          89,
-          90,
-          91,
-          92
+          89
         ],
         "blurb": "Open the Batavia case as an interactive book."
       }
@@ -181,6 +181,9 @@ window.BOOK = {
         "label": "Federation, 1901",
         "url": "https://robmac10.github.io/federation-case/",
         "pages": [
+          90,
+          91,
+          92,
           93,
           94,
           95,
@@ -191,65 +194,37 @@ window.BOOK = {
           100,
           101,
           102,
-          103,
-          104,
-          105,
-          106
+          103
         ],
         "blurb": "Open the Federation case as an interactive book."
+      }
+    ],
+    "43": [
+      {
+        "id": "protection-case",
+        "label": "Did “protection” ever mean protection?",
+        "url": "https://robmac10.github.io/protection-case/",
+        "pages": [
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117
+        ],
+        "blurb": "Open the Protection case as an interactive book."
       }
     ]
   },
   "cases": [
-    {
-      "num": 1,
-      "year": 4,
-      "yearLabel": "Year 4",
-      "title": "The First Fleet, 1787–88",
-      "question": "Why send a fleet to the other side of the world?",
-      "codes": "AC9HS4K02",
-      "status": "Outlined",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 2,
-      "year": 4,
-      "yearLabel": "Year 4",
-      "title": "Bennelong and the Governor, 1789–92",
-      "question": "Captive, guest or go-between? Who wrote Bennelong’s story, and who didn’t?",
-      "codes": "AC9HS4K03, AC9HS4K04",
-      "status": "Outlined",
-      "tags": [
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 3,
-      "year": 4,
-      "yearLabel": "Year 4",
-      "title": "Mary Bryant’s escape, 1791",
-      "question": "How did a convict family sail out of Sydney Cove, and what did the officers write?",
-      "codes": "AC9HS4K03",
-      "status": "Outlined",
-      "tags": [
-        "Women"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
     {
       "num": 4,
       "year": 5,
@@ -262,14 +237,17 @@ window.BOOK = {
         "First Nations: needs consultation"
       ],
       "written": true,
-      "start": 52,
-      "end": 64,
+      "start": 49,
+      "end": 61,
       "apps": [
         {
           "id": "burke-wills-case",
           "label": "Burke and Wills case",
           "url": "https://robmac10.github.io/burke-wills-case/",
           "pages": [
+            49,
+            50,
+            51,
             52,
             53,
             54,
@@ -279,15 +257,12 @@ window.BOOK = {
             58,
             59,
             60,
-            61,
-            62,
-            63,
-            64
+            61
           ],
           "blurb": "Open the Burke and Wills case as an interactive book."
         }
       ],
-      "envelope": 52
+      "envelope": 49
     },
     {
       "num": 5,
@@ -301,23 +276,23 @@ window.BOOK = {
         "Women (Hayes strand)"
       ],
       "written": true,
-      "start": 9,
-      "end": 27,
+      "start": 6,
+      "end": 24,
       "apps": [
         {
           "id": "nells-diary",
           "label": "Nell’s Diary",
           "url": "https://robmac10.github.io/nells-diary/",
           "pages": [
+            7,
+            8,
+            9,
             10,
             11,
             12,
             13,
             14,
-            15,
-            16,
-            17,
-            18
+            15
           ],
           "blurb": "Read Nell’s Diary as an interactive book."
         },
@@ -326,142 +301,21 @@ window.BOOK = {
           "label": "Who Fired First?",
           "url": "https://robmac10.github.io/who-fired-first/",
           "pages": [
+            15,
+            16,
+            17,
             18,
             19,
             20,
             21,
             22,
             23,
-            24,
-            25,
-            26,
-            27
+            24
           ],
           "blurb": "Open the Eureka case file."
         }
       ],
-      "envelope": 9
-    },
-    {
-      "num": 6,
-      "year": 5,
-      "yearLabel": "Year 5",
-      "title": "A local gold rush",
-      "question": "Who found the gold first, and who got the reward?",
-      "codes": "AC9HS5K02, AC9HS5K03",
-      "status": "Outlined",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 7,
-      "year": 5,
-      "yearLabel": "Year 5",
-      "title": "The walk from Robe, 1857",
-      "question": "Why did Chinese miners land in South Australia and walk to the Victorian goldfields?",
-      "codes": "AC9HS5K03",
-      "status": "Outlined",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 8,
-      "year": 5,
-      "yearLabel": "Year 5",
-      "title": "Mary McConnel and the Hospital for Sick Children, 1878",
-      "question": "Who really founded Brisbane’s first hospital for children?",
-      "codes": "AC9HS5K03",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 9,
-      "year": 5,
-      "yearLabel": "Year 5",
-      "title": "Hannah Rigby, Moreton Bay, 1821–1840",
-      "question": "What do the records actually say about Hannah Rigby — and can both files be true?",
-      "codes": "AC9HS5K03",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 10,
-      "year": 5,
-      "yearLabel": "Year 5",
-      "title": "The Female Factory, Queen Street and Eagle Farm, 1829–1839",
-      "question": "When were the women first held at Eagle Farm — 1830, or 1834?",
-      "codes": "AC9HS5K02, AC9HS5K03",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 11,
-      "year": 5,
-      "yearLabel": "Year 5",
-      "title": "The Earl Grey Girls, 1848–1850",
-      "question": "How many Irish Famine orphans were sent on to Moreton Bay — and what happened to them there?",
-      "codes": "AC9HS5K03",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 12,
-      "year": 5,
-      "yearLabel": "Year 5",
-      "title": "Widows, female settlers and the emigrant ships, 1860s–1880s",
-      "question": "They were given land. Whose was it?",
-      "codes": "AC9HS5K02, AC9HS5K03",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland",
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
+      "envelope": 6
     },
     {
       "num": 13,
@@ -475,14 +329,17 @@ window.BOOK = {
         "First Nations: needs consultation"
       ],
       "written": true,
-      "start": 93,
-      "end": 106,
+      "start": 90,
+      "end": 103,
       "apps": [
         {
           "id": "federation-case",
           "label": "Federation, 1901",
           "url": "https://robmac10.github.io/federation-case/",
           "pages": [
+            90,
+            91,
+            92,
             93,
             94,
             95,
@@ -493,166 +350,12 @@ window.BOOK = {
             100,
             101,
             102,
-            103,
-            104,
-            105,
-            106
+            103
           ],
           "blurb": "Open the Federation case as an interactive book."
         }
       ],
-      "envelope": 93
-    },
-    {
-      "num": 14,
-      "year": 6,
-      "yearLabel": "Year 6",
-      "title": "Votes for women: South Australia 1894 and the first federal vote, 1902",
-      "question": "Who was given the vote, and who was shut out?",
-      "codes": "AC9HS6K01, AC9HS6K02",
-      "status": "Outlined",
-      "tags": [
-        "Women",
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 15,
-      "year": 6,
-      "yearLabel": "Year 6",
-      "title": "Emma Miller and the Queensland women’s vote, 1905",
-      "question": "Why did Queensland take so long — and who was still shut out?",
-      "codes": "AC9HS6K02",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland",
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 16,
-      "year": 6,
-      "yearLabel": "Year 6",
-      "title": "Edith Cowan, first woman in an Australian parliament, 1921",
-      "question": "How did the first woman in an Australian parliament get there — and what did the papers say?",
-      "codes": "AC9HS6K02",
-      "status": "Proposed",
-      "tags": [
-        "Women"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 17,
-      "year": 6,
-      "yearLabel": "Year 6",
-      "title": "Irene Longman, first woman in the Queensland Parliament, 1929",
-      "question": "What did the House and the newspapers say when a woman took her seat?",
-      "codes": "AC9HS6K02",
-      "status": "Proposed",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 18,
-      "year": 6,
-      "yearLabel": "Year 6",
-      "title": "The 1906 Islander deportations  ·  Troubled Paths on Ancient Ground",
-      "question": "Who was sent home, who stayed, and who decided?",
-      "codes": "AC9HS6K02",
-      "status": "From Frontier Friction",
-      "tags": [
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 19,
-      "year": 6,
-      "yearLabel": "Year 6",
-      "title": "Coming to the Snowy, 1949 on",
-      "question": "Why did workers come from so far away?",
-      "codes": "AC9HS6K03",
-      "status": "Outlined",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 20,
-      "year": 7,
-      "yearLabel": "Year 7",
-      "title": "Lake Mungo: who tells the story of Australia’s oldest known people?",
-      "question": "How did scientists and Traditional Owners come to tell the Mungo story, and whose voices does the record leave out?",
-      "codes": "AC9HH7K02, AC9HH7K07, AC9HH7K08",
-      "status": "Proposed",
-      "tags": [
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 21,
-      "year": 7,
-      "yearLabel": "Year 7",
-      "title": "The ancient world: Rome. Pliny’s letters on Vesuvius",
-      "question": "One eyewitness wrote it down years later. How far can we trust him, and what else do we know?",
-      "codes": "AC9HH7K08, AC9HH7K09",
-      "status": "Proposed",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 22,
-      "year": 8,
-      "yearLabel": "Year 8",
-      "title": "The Princes in the Tower, 1483",
-      "question": "What became of Edward V and his brother? Who wrote the story, and who gained?",
-      "codes": "AC9HH8K03, AC9HH8K04, AC9HH8K06",
-      "status": "Proposed",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
+      "envelope": 90
     },
     {
       "num": 23,
@@ -668,14 +371,17 @@ window.BOOK = {
         "First Nations: needs consultation"
       ],
       "written": true,
-      "start": 28,
-      "end": 39,
+      "start": 25,
+      "end": 36,
       "apps": [
         {
           "id": "eliza-fraser-case",
           "label": "Eliza Fraser case",
           "url": "https://robmac10.github.io/eliza-fraser-case/",
           "pages": [
+            25,
+            26,
+            27,
             28,
             29,
             30,
@@ -684,205 +390,12 @@ window.BOOK = {
             33,
             34,
             35,
-            36,
-            37,
-            38,
-            39
+            36
           ],
           "blurb": "Open the Eliza Fraser case as an interactive book."
         }
       ],
-      "envelope": 28
-    },
-    {
-      "num": 24,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "Myall Creek, 1838",
-      "question": "What do the court records show, and what did the court never ask?",
-      "codes": "AC9HH9K03, AC9HH9K06",
-      "status": "Proposed",
-      "tags": [
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 25,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "Port Curtis, 1855  ·  Shipwrecked on Ancient Ground",
-      "question": "Who was on the shore, and whose story made the record?",
-      "codes": "AC9HH9K03, AC9HH9K06",
-      "status": "From Frontier Friction",
-      "tags": [
-        "Queensland",
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 26,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "Ned Kelly and Glenrowan, 1878–80",
-      "question": "Hero or outlaw? Police, newspapers and Kelly’s own letter tell different stories.",
-      "codes": "AC9HH9K04, AC9HH9K05",
-      "status": "Proposed",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 27,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "Mary Elizabeth Weedon and the School of Nurses, 1885–1912",
-      "question": "Who built formal nurse training in Queensland — the superintendent, or the doctor who usually gets the credit?",
-      "codes": "AC9HH9K04",
-      "status": "Proposed",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 28,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "Kal-Ma-Kuta / Alma Turner, 1870s–1897",
-      "question": "What do the oyster-lease and lighthouse records show about her life — and who wrote it down?",
-      "codes": "AC9HH9K03, AC9HH9K06",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland",
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 29,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "Mary and Kitty at the door, Rosewood Scrub, 1898  ·  Resettled",
-      "question": "Who was at the door that night — and who wrote it down?",
-      "codes": "AC9HH9K03, AC9HH9K06",
-      "status": "From Frontier Friction",
-      "tags": [
-        "Women",
-        "Queensland",
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 30,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "What Was Hidden: concealment of birth, 1850–1900",
-      "question": "Which women came before the courts — and what do the depositions record that the newspapers did not?",
-      "codes": "AC9HH9K05",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 31,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "Emma Miller and the hatpin, Black Friday, 1912",
-      "question": "Did Emma Miller’s hatpin throw the Police Commissioner from his horse?",
-      "codes": "AC9HH9K04",
-      "status": "Proposed",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 32,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "The Gallipoli landing, 1915",
-      "question": "What did people at home read, and what did the men who were there write?",
-      "codes": "AC9HH9K09, AC9HH9K12",
-      "status": "Proposed",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 33,
-      "year": 9,
-      "yearLabel": "Year 9",
-      "title": "The conscription referendums, 1916–17",
-      "question": "Who voted No, and why? Whose voices are missing from the posters?",
-      "codes": "AC9HH9K11",
-      "status": "Proposed",
-      "tags": [],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 34,
-      "year": 10,
-      "yearLabel": "Year 10",
-      "title": "Sister Elizabeth Kenny and polio treatment, 1930s–40s",
-      "question": "Was Sister Kenny a miracle worker or a meddler?",
-      "codes": "AC9HH10K14",
-      "status": "Proposed",
-      "tags": [
-        "Women",
-        "Queensland"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
+      "envelope": 25
     },
     {
       "num": 35,
@@ -903,25 +416,6 @@ window.BOOK = {
       "envelope": null
     },
     {
-      "num": 36,
-      "year": 10,
-      "yearLabel": "Year 10",
-      "title": "In Her Own Words: an Aboriginal woman’s voice in the Protection files, 1897 onwards",
-      "question": "Which letters in the Protection files were written by the woman herself — and how did officials answer her?",
-      "codes": "AC9HH10K09",
-      "status": "From Queenslander",
-      "tags": [
-        "Women",
-        "Queensland",
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
       "num": 37,
       "year": 10,
       "yearLabel": "Year 10",
@@ -933,14 +427,17 @@ window.BOOK = {
         "First Nations: needs consultation"
       ],
       "written": true,
-      "start": 40,
-      "end": 51,
+      "start": 37,
+      "end": 48,
       "apps": [
         {
           "id": "freedom-ride-case",
           "label": "Freedom Ride case",
           "url": "https://robmac10.github.io/freedom-ride-case/",
           "pages": [
+            37,
+            38,
+            39,
             40,
             41,
             42,
@@ -949,66 +446,12 @@ window.BOOK = {
             45,
             46,
             47,
-            48,
-            49,
-            50,
-            51
+            48
           ],
           "blurb": "Open the Freedom Ride case as an interactive book."
         }
       ],
-      "envelope": 40
-    },
-    {
-      "num": 38,
-      "year": 10,
-      "yearLabel": "Year 10",
-      "title": "Wave Hill walk-off, 1966",
-      "question": "Who walked off, why, and who wrote it down at the time?",
-      "codes": "AC9HH10K10, AC9HH10K11",
-      "status": "Proposed",
-      "tags": [
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 39,
-      "year": 10,
-      "yearLabel": "Year 10",
-      "title": "Zelda D’Aprano and equal pay, 1969",
-      "question": "Was chaining herself to a Melbourne building a stunt, or a turning point?",
-      "codes": "AC9HH10K12",
-      "status": "Proposed",
-      "tags": [
-        "Women"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
-    },
-    {
-      "num": 40,
-      "year": 10,
-      "yearLabel": "Year 10",
-      "title": "Bringing Them Home, 1997",
-      "question": "What do testimonies show that the government records do not?",
-      "codes": "AC9HH10K09, AC9HH10K13",
-      "status": "Proposed",
-      "tags": [
-        "First Nations: needs consultation"
-      ],
-      "written": false,
-      "start": null,
-      "end": null,
-      "apps": [],
-      "envelope": null
+      "envelope": 37
     },
     {
       "num": 41,
@@ -1020,14 +463,17 @@ window.BOOK = {
       "status": "Written",
       "tags": [],
       "written": true,
-      "start": 65,
-      "end": 78,
+      "start": 62,
+      "end": 75,
       "apps": [
         {
           "id": "perth-mint-case",
           "label": "Perth Mint case",
           "url": "https://robmac10.github.io/perth-mint-case/",
           "pages": [
+            62,
+            63,
+            64,
             65,
             66,
             67,
@@ -1038,15 +484,12 @@ window.BOOK = {
             72,
             73,
             74,
-            75,
-            76,
-            77,
-            78
+            75
           ],
-          "blurb": "Open the Perth Mint Swindle case as an interactive book."
+          "blurb": "Open the Perth Mint case as an interactive book."
         }
       ],
-      "envelope": 65
+      "envelope": 62
     },
     {
       "num": 42,
@@ -1058,24 +501,27 @@ window.BOOK = {
       "status": "Written",
       "tags": [],
       "written": true,
-      "start": 79,
-      "end": 92,
+      "start": 76,
+      "end": 89,
       "apps": [
         {
           "id": "batavia-escape-room",
           "label": "In Case of Emergency",
           "url": "https://robmac10.github.io/batavia-escape-room/",
           "pages": [
-            79,
-            80
+            76
           ],
           "blurb": "Do the escape room first, then open the case file."
         },
         {
           "id": "batavia-case",
-          "label": "The Unfinished Voyage",
+          "label": "Batavia case",
           "url": "https://robmac10.github.io/batavia-case/",
           "pages": [
+            77,
+            78,
+            79,
+            80,
             81,
             82,
             83,
@@ -1084,126 +530,174 @@ window.BOOK = {
             86,
             87,
             88,
-            89,
-            90,
-            91,
-            92
+            89
           ],
           "blurb": "Open the Batavia case as an interactive book."
         }
       ],
-      "envelope": 80
+      "envelope": 77
+    },
+    {
+      "num": 43,
+      "year": 10,
+      "yearLabel": "Year 10",
+      "title": "Did “protection” ever mean protection?",
+      "question": "Did the word “protection” ever mean protection — from Phillip’s 1787 instructions to the Aborigines Act 1905 (WA) and A. O. Neville?",
+      "codes": "AC9HH10K09",
+      "status": "Written",
+      "tags": [
+        "First Nations: needs consultation"
+      ],
+      "written": true,
+      "start": 104,
+      "end": 117,
+      "apps": [
+        {
+          "id": "protection-case",
+          "label": "Did “protection” ever mean protection?",
+          "url": "https://robmac10.github.io/protection-case/",
+          "pages": [
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117
+          ],
+          "blurb": "Open the Protection case as an interactive book."
+        }
+      ],
+      "envelope": 104
     }
   ],
   "qr": "assets/qr-book.png",
   "url": "https://robmac10.github.io/reopen-the-record/",
   "pageAlts": {
-    "1": "Book cover: a manila exhibit envelope titled Reopen the Record: Australian Histories, Years 4 to 10, stamped Case Reopened, with year-level tabs along the right edge.",
-    "2": "Title page. Reopen the Record: Australian Histories. History case files, Years 4 to 10. Real people. Real records. Real questions the record never settled.",
+    "1": "Book cover: a manila exhibit envelope titled Reopen the Record: Australian Histories, Years 4 to 10, stamped Case Reopened, with an exhibit tag reading Sample Cases, and year-level tabs along the right edge.",
+    "2": "Title page. Reopen the Record: Australian Histories. History case files, Years 4 to 10. Sample: contents page and eight full cases.",
     "3": "Page 3. How a case file works: every case is a real event, with witnesses, a finding, and optional Super Sleuths.",
-    "4": "Page 4. Contents, beginning of the list of forty-two cases from Years 4 to 10.",
-    "5": "Page 5. Contents, continued: Year 5 and Year 6 cases.",
-    "6": "Page 6. Contents, continued: Year 6 and Year 7 cases.",
-    "7": "Page 7. Contents, continued: Year 9 cases.",
-    "8": "Page 8. Contents, end of the list, including the Perth Mint Swindle and the wreck of the Batavia.",
-    "9": "Envelope opener for Case 5, Year 5: Eureka Stockade, 1854. Who fired first?",
-    "10": "Page 10. Opening of Nell’s Diary, a constructed notebook set at Eureka lead, Ballarat.",
-    "11": "Page 11. Case 5: Eureka Stockade, 1854. Nell Byrne St Alipius Roman Catholic Denominational School, Ballarat Eureka lead, Ballarat 1854 St Alipius School, Ballarat Late November, 1",
-    "12": "Page 12. Case 5: Eureka Stockade, 1854. up. It’s in my coat. The coat was hanging on the windlass post. The trooper asked, Is your father down there, girl? I held the paper up with",
-    "13": "Page 13. Case 5: Eureka Stockade, 1854. Count them It had five white stars, just like the Southern again. Were Cross at night. I never saw anything so beatiful they all the same be",
-    "14": "Page 14. Case 5: Eureka Stockade, 1854. that hill. leave. Hundreds of armed diggers gathered around the flagpole. Lalor knelt, took off his hat, and pointed to the blue flag. They ",
-    "15": "Page 15. Case 5: Eureka Stockade, 1854. inside it look fierce and proud. Watch where Our tent is close enough to hear the hammering all the women go day. and what they carry. Keep ",
-    "16": "Page 16. Case 5: Eureka Stockade, 1854. The stockade is quiet. I keep thinking about the Camp, on the other side of Ballarat. I wonder if anyone is asleep there at all. Our tent, E",
-    "17": "Page 17. End of Nell’s Diary: now you’re the detective, open the case file.",
-    "18": "Page 18. Case 5. A QR code and link to read Nell’s Diary as an interactive book.",
-    "19": "Page 19. Case 5, The Case: Who fired first? Eureka Stockade, Ballarat, 3 December 1854.",
-    "20": "Page 20. Case 5, My finding.",
-    "21": "Page 21. Case 5, Super Sleuths.",
-    "22": "Page 22. Case 5, Teacher Note.",
-    "23": "Page 23. Case 5: Eureka Stockade, 1854. Sources: https://saballarat.catholic.edu.au/st-alipius-history.html and https://eurekapedia.org/Anastasia_Hayes. What really happened? From ",
-    "24": "Page 24. Case 5: Eureka Stockade, 1854. Books Collection, State Library of Victoria. The original artist is not named on the Commons file. Anastasia Hayes was a real teacher at St ",
-    "25": "Page 25. Case 5: Eureka Stockade, 1854. Resources Students can also read Nell’s Diary as an interactive book, on a tablet or phone. The notebook on screen is the same story as the ",
-    "26": "Page 26. Case 5: Eureka Stockade, 1854. Further reading for students and teachers Four books that bring Eureka to life for young readers. They are stories and retellings, so read t",
-    "27": "Page 27. Case 5: Eureka Stockade, 1854. Eureka: One Bloody Sunday. Hugh Dolan, illustrated by Dave Dye. NewSouth, 2019, ISBN 9781742235950. Graphic history with a study guide, ages",
-    "28": "Envelope opener for Case 23, Year 9: Eliza Fraser and the wreck of the Stirling Castle, K’gari, 1836.",
-    "29": "Page 29. Typographic letter from Great Sandy Island, early July 1836.",
-    "30": "Page 30. Case 23. A QR code and link to read the letter as an interactive book.",
-    "31": "Page 31. Case 23, Read: Was Eliza Fraser a captive, or a guest?",
-    "32": "Page 32. Case 23, three witnesses.",
-    "33": "Page 33. Case 23: Eliza Fraser and the wreck of the Stirling Castle, K’gari, 1836. John Graham John Graham · convict guide to the rescue party A memorandum written to claim a reward, after the expedition. Source. “Memorandu",
-    "34": "Page 34. Case 23, My finding.",
-    "35": "Page 35. Case 23, Super Sleuths.",
-    "36": "Page 36. Case 23, Teacher Note. Draft, pending consultation with the Butchulla Aboriginal Corporation.",
-    "37": "Page 37. Case 23: Eliza Fraser and the wreck of the Stirling Castle, K’gari, 1836. The shoulder wound. The letter says “The wound in his shoulder has not closed.” It does not say he arrived on the island already wounded. El",
-    "38": "Page 38. Case 23: Eliza Fraser and the wreck of the Stirling Castle, K’gari, 1836. (captive, guest, or we can’t know). 8 minutes Read the letter. No commentary until they have finished. 15 minutes Small groups take one evid",
-    "39": "Page 39. Case 23: Eliza Fraser and the wreck of the Stirling Castle, K’gari, 1836. Cultural safety · reminder Consultation first, with the Butchulla Aboriginal Corporation and those it names. Use K’gari for the island, and ",
-    "40": "Envelope opener for Case 37, Year 10: The Freedom Ride, 1965.",
-    "41": "Page 41. Typographic notebook page, 20 February 1965, Moree.",
-    "42": "Page 42. Case 37. A QR code and link to read the notebook as an interactive book.",
-    "43": "Page 43. Case 37, Read: What happened in the towns the students visited, and who recorded it?",
-    "44": "Page 44. Case 37, three witnesses.",
-    "45": "Page 45. Case 37: The Freedom Ride, 1965. Ann Curthoys University of Sydney student on the bus · diarist A diary kept on the trip, later published. Source. Ann Curthoys, diary of the",
-    "46": "Page 46. Case 37, My finding.",
-    "47": "Page 47. Case 37, Super Sleuths.",
-    "48": "Page 48. Case 37, Teacher Note. Draft, pending consultation.",
-    "49": "Page 49. Case 37: The Freedom Ride, 1965. Corrections and flags Two Moree visits, not one. The source draft merged them. First visit, Wednesday 16 February 1965: a picket; children a",
-    "50": "Page 50. Case 37: The Freedom Ride, 1965. same year, and is acknowledged as the first Aboriginal woman to complete an Australian university degree. Valadian is living: no dates on th",
-    "51": "Page 51. Case 37: The Freedom Ride, 1965. methods in the movement for the civil rights of First Nations Australians, and the extent to which they contributed to change. Skills of use",
-    "52": "Envelope opener for Case 4, Year 5: Burke and Wills at Cooper Creek, 1861.",
-    "53": "Page 53. Typographic notebook page, Friday 28 June 1861, Cooper Creek.",
-    "54": "Page 54. Case 4. A QR code and link to read the notebook as an interactive book.",
-    "55": "Page 55. Case 4, Read: What was the real cause of death?",
-    "56": "Page 56. Case 4: Burke and Wills at Cooper Creek, 1861. nutriment,” that his pulse was at forty-eight, and that he could only look out, like Mr Micawber, “for something to turn up.” Burke and King",
-    "57": "Page 57. Case 4: Burke and Wills at Cooper Creek, 1861. William John Wills Surveyor of the expedition · 1834–1861 His Cooper Creek field notebook, recovered after his death. Source. National Libra",
-    "58": "Page 58. Case 4: Burke and Wills at Cooper Creek, 1861. Alfred Howitt Leader of the Victorian relief party · 1830–1908 His own diary of the day his party found King. Source. A. W. Howitt, diary of",
-    "59": "Page 59. Case 4, My finding.",
-    "60": "Page 60. Case 4, Super Sleuths.",
-    "61": "Page 61. Case 4: Burke and Wills at Cooper Creek, 1861. 3 · THE 1994 NATURE PAPER J. W. Earl and B. V. McCleary, “Mystery of the poisoned expedition,” Nature 368 (21 April 1994): 683–684, argued t",
-    "62": "Page 62. Case 4, Teacher Note. Draft, pending consultation with Yandruwandha Yawarrawarrka and related communities.",
-    "63": "Page 63. Case 4: Burke and Wills at Cooper Creek, 1861. Two further flags, for you to raise rather than resolve here. First, the outlined list question was “Why was no one waiting at the Dig Tree?",
-    "64": "Page 64. Case 4: Burke and Wills at Cooper Creek, 1861. Australia; State Library Victoria Burke and Wills collection pages; burkeandwills.net.au (transcriptions and provenance notes, to be checked",
-    "65": "Envelope opener for Case 41, Year 10: The Perth Mint Swindle, 1982.",
-    "66": "Page 66. Typographic page, Perth, 1989: a gold bar is sent to a television station.",
-    "67": "Page 67. Case 41. A QR code and link to read the 1989 page as an interactive book.",
-    "68": "Page 68. Case 41, Read: What can the records prove?",
-    "69": "Page 69. Case 41: The Perth Mint Swindle, 1982. The majority was Malcolm CJ and Steytler J. Murray J dissented. The court found a substantial miscarriage of justice. It did not decide who ",
-    "70": "Page 70. Case 41: The Perth Mint Swindle, 1982. Ray and Peter Mickelberg The two brothers whose 1983 convictions were quashed in 2004 · Living — no dates given here Their own accounts, fro",
-    "71": "Page 71. Case 41: The Perth Mint Swindle, 1982. The Court of Criminal Appeal (WA) Mickelberg v The Queen [2004] WASCA 145 · 2 July 2004 The court’s published reasons, on an Attorney-Genera",
-    "72": "Page 72. Case 41, My finding.",
-    "73": "Page 73. Case 41, Super Sleuths.",
-    "74": "Page 74. Case 41: The Perth Mint Swindle, 1982. (including the Sydney Morning Herald, 11 June 2002) and as considered by the 2004 court, he said the notes of interview dated 26 July 1982 w",
-    "75": "Page 75. Case 41: The Perth Mint Swindle, 1982. his convictions were quashed on 4 November 1983. A 2023 ABC feature says his sentence was “cut to eight months.” Those two wordings are not ",
-    "76": "Page 76. Case 41, Teacher Note. This file names living people and does not say that any living person committed the swindle.",
-    "77": "Page 77. Case 41: The Perth Mint Swindle, 1982. (including Ray and Peter Mickelberg, and others still living) get no dates and no photographs. Silhouettes are used, and are labelled as sil",
-    "78": "Page 78. Case 41: The Perth Mint Swindle, 1982. student finding that names a living person as the offender, or as a fabricator, unless that student is quoting a court that has actually fou",
-    "79": "Page 79. Case 42, Year 4. Start here: In Case of Emergency. A story-map of a locked museum and a QR code for the escape room.",
-    "80": "Envelope opener for Case 42, Year 4: The Unfinished Voyage, the wreck of the Batavia, 1629.",
-    "81": "Page 81. Typographic page from the night of the wreck: the reef of Frederick Houtman, Monday morning, 4 June 1629.",
-    "82": "Page 82. Case 42. A QR code and link to read the page from the night of the wreck as an interactive book.",
-    "83": "Page 83. Case 42, Read: What can the records still not tell us?",
-    "84": "Page 84. Case 42: The Unfinished Voyage: the wreck of the Batavia, 1629. Pelsaert was not on the islands during those weeks. What we know of them comes mainly from later questions, and from what he wrote down afte",
-    "85": "Page 85. Case 42: The Unfinished Voyage: the wreck of the Batavia, 1629. Wiebbe Hayes A soldier on the Batavia · Led the group that held the higher island The man who found water, kept his group together, and reac",
-    "86": "Page 86. Case 42, My finding.",
-    "87": "Page 87. Case 42, Super Sleuths.",
-    "88": "Page 88. Case 42: The Unfinished Voyage: the wreck of the Batavia, 1629. 4. Papers that really were lost Pelsaert’s handwritten journal still survives in the Dutch National Archives (VOC 1098, folios 232– 317). It",
-    "89": "Page 89. Case 42: The Unfinished Voyage: the wreck of the Batavia, 1629. If a class takes this question further, it should do so with care, and with guidance from the relevant Aboriginal communities of that coast,",
-    "90": "Page 90. Case 42, Teacher Note.",
-    "91": "Page 91. Case 42: The Unfinished Voyage: the wreck of the Batavia, 1629. for moonlight, follow the Western Australian Museum’s account of that night (Jacobsz as head of the watch). The English wording is a short r",
-    "92": "Page 92. Case 42: The Unfinished Voyage: the wreck of the Batavia, 1629. museum staff, if named in class, get no dates and no photographs. No photos of human remains are used. This is not, in the main, a First Nat",
-    "93": "Envelope opener for Case 13, Year 6: Federation, 1901. Who had a say in making the nation, and who was left out?",
-    "94": "Page 94. Typographic page of Sir Henry Parkes’s words: the Tenterfield oration, 24 October 1889, and the crimson thread of kinship, 6 February 1890.",
-    "95": "Page 95. Case 13. A QR code and link to read Sir Henry Parkes’s words as an interactive book.",
-    "96": "Page 96. Case 13, Read: Who had a say in making the nation, and who was left out? He never saw it happen. Draft, pending consultation.",
-    "97": "Page 97. Case 13, What is agreed, and three witnesses.",
-    "98": "Page 98. Case 13, witness card: Edmund Barton.",
-    "99": "Page 99. Case 13, witness card: Rose Scott.",
-    "100": "Page 100. Case 13, witness card: Mei Quong Tart.",
-    "101": "Page 101. Case 13, My finding.",
-    "102": "Page 102. Case 13, Super Sleuths.",
-    "103": "Page 103. Case 13: Federation, 1901. colonies the voters were adult men. Aboriginal people were widely excluded in Queensland and Western Australia. In some other colonies the p",
-    "104": "Page 104. Case 13: Federation, 1901. Question. What does a letter to the Prime Minister show that a referendum roll does not? STILL IN DISPUTE, OR ADDED LATER 8. Barton’s line, ",
-    "105": "Page 105. Case 13, Teacher Note. Draft, pending consultation.",
-    "106": "Page 106. Case 13: Federation, 1901. not checked word for word against an original letter or paper in this build, so they are not printed on the student page. Pictures Sir Henry"
+    "4": "Page 4. Printed contents of this sample: eight written cases plus Case 35, the hospital ship Centaur, which is listed and not yet written.",
+    "5": "Page 5. Printed contents of this sample: eight written cases plus Case 35, the hospital ship Centaur, which is listed and not yet written.",
+    "6": "Page 6. Case 5. A full-page illustration or envelope from the casebook.",
+    "7": "Page 7. Case 5. CASE 5 · YEAR 5 HISTORY CASE FILE · WHO FIRED FIRST? Nell’s Diary Gunfire at Dawn The Eureka Stockade, Ballarat, 1854 Exhibit N: diary of Nell Byrne, Ballarat, 1854 St Alipius Roma",
+    "8": "Page 8. Case 5. Nell Byrne St Alipius Roman Catholic Denominational School, Ballarat Eureka lead, Ballarat 1854 St Alipius School, Ballarat Late November, 1854 For Mrs Hayes. The shout came racing",
+    "9": "Page 9. Case 5. up. It’s in my coat. The coat was hanging on the windlass post. The trooper asked, Is your father down there, girl? I held the paper up with both hands. He squinted, grunted, and r",
+    "10": "Page 10. Case 5. Count them It had five white stars, just like the Southern again. Were Cross at night. I never saw anything so beatiful they all the same beautiful . size? Somebody lit a bonfire.",
+    "11": "Page 11. Case 5. that hill. leave. Hundreds of armed diggers gathered around the flagpole. Lalor knelt, took off his hat, and pointed to the blue flag. They swore to stand by each other and fight t",
+    "12": "Page 12. Case 5. inside it look fierce and proud. Watch where Our tent is close enough to hear the hammering all the women go day. and what they carry. Keep this book I keep thinking about what Mrs",
+    "13": "Page 13. Case 5. The stockade is quiet. I keep thinking about the Camp, on the other side of Ballarat. I wonder if anyone is asleep there at all. Our tent, Eureka Sunday, 3 December. Before dawn. S",
+    "14": "Page 14. Case 5. Now you’re the detective: open the case file. Reopen the Record: Australian Histories · sample · 14",
+    "15": "Page 15. Case 5. CASE 5 · YEAR 5 Read Nell’s Diary as an interactive book Open the diary on a tablet or phone. It is the same notebook you have just read, as an interactive book. robmac10.github.io",
+    "16": "Page 16. Case 5. CASE 5 · YEAR 5 · THE CASE Who fired first? Eureka Stockade, Ballarat, 3 December 1854 Before dawn on Sunday 3 December 1854, soldiers and police marched from the Government Camp a",
+    "17": "Page 17. Case 5. My finding CASE 5 · YEAR 5 There is no answer at the back. Historians still disagree about who fired first. Write only what these records can support. Do not invent what they do no",
+    "18": "Page 18. Case 5. CASE 5 · YEAR 5 · OPTIONAL EXTENSION Super Sleuths This section is extra. You do not have to do it. It is for students who want to dig deeper after they have written a finding. Onl",
+    "19": "Page 19. Case 5. Teacher Note Curriculum link: Australian Curriculum: HASS v9, Year 5 (History) AC9HS5K03: “the role of a significant individual or group, including First Nations Australians and th",
+    "20": "Page 20. Case 5. Sources: https://saballarat.catholic.edu.au/st-alipius-history.html and https://eurekapedia.org/Anastasia_Hayes. What really happened? From the records: the licence hunts; licences",
+    "21": "Page 21. Case 5. Books Collection, State Library of Victoria. The original artist is not named on the Commons file. Anastasia Hayes was a real teacher at St Alipius and the wife of digger leader Ti",
+    "22": "Page 22. Case 5. Resources Students can also read Nell’s Diary as an interactive book, on a tablet or phone. The notebook on screen is the same story as the pages in this book. Use it in class, or",
+    "23": "Page 23. Case 5. Further reading for students and teachers Four books that bring Eureka to life for young readers. They are stories and retellings, so read them the way you read a witness: what doe",
+    "24": "Page 24. Case 5. Eureka: One Bloody Sunday. Hugh Dolan, illustrated by Dave Dye. NewSouth, 2019, ISBN 9781742235950. Graphic history with a study guide, ages 9–12. It shows the battle and its dead,",
+    "25": "Page 25. Case 23. A full-page illustration or envelope from the casebook.",
+    "26": "Page 26. Case 23. Great Sandy Island, early July 1836 We have been on this sand for nearly three weeks now. The longboat is useless. Six of the men took what they could carry and walked south. They",
+    "27": "Page 27. Case 23. CASE 23 · YEAR 9 Read the letter as an interactive book Open the case on a tablet or phone. It is the same letter you have just read, as an interactive book. robmac10.github.io/eli",
+    "28": "Page 28. Case 23. CASE 23 · YEAR 9 · READ Was Eliza Fraser a captive, or a guest? The wreck of the Stirling Castle · K’gari, May–August 1836 Draft, pending consultation with the Butchulla Aboriginal",
+    "29": "Page 29. Case 23. CASE 23 · YEAR 9 · THE CASE Three witnesses The same three questions for each: What did they say they saw? · Could they really have seen it? · Why might they say it? Each has a pla",
+    "30": "Page 30. Case 23. John Graham John Graham · convict guide to the rescue party A memorandum written to claim a reward, after the expedition. Source. “Memorandum of the Real fact … of John Graham,” re",
+    "31": "Page 31. Case 23. My finding CASE 23 · YEAR 9 Other people in the 1836 file, not on the Ask page, are named in Super Sleuths: John Baxter, Joseph Corralis, and Robert Darge. Spellings in the file va",
+    "32": "Page 32. Case 23. CASE 23 · YEAR 9 · OPTIONAL EXTENSION Super Sleuths This section is extra. You do not have to do it. It is for students who want to dig deeper after they have written a finding. On",
+    "33": "Page 33. Case 23. Teacher Note CASE 23 · YEAR 9 · ELIZA FRASER AND THE WRECK OF THE STIRLING CASTLE CONSULTATION REQUIRED This case is a draft, pending consultation with the Butchulla Aboriginal Cor",
+    "34": "Page 34. Case 23. The shoulder wound. The letter says “The wound in his shoulder has not closed.” It does not say he arrived on the island already wounded. Eliza attributes the wound to a spear, “a",
+    "35": "Page 35. Case 23. (captive, guest, or we can’t know). 8 minutes Read the letter. No commentary until they have finished. 15 minutes Small groups take one evidence pack (Eliza 1836; Graham; Otter; or",
+    "36": "Page 36. Case 23. Cultural safety · reminder Consultation first, with the Butchulla Aboriginal Corporation and those it names. Use K’gari for the island, and “Fraser Island” only when discussing the",
+    "37": "Page 37. Case 37. A full-page illustration or envelope from the casebook.",
+    "38": "Page 38. Case 37. 20 February 1965 Moree Egg on my sleeve. I keep wiping it. Still there. We came back. We had to. Last time they said the ban was off. We left. They put it back on. I don’t know why",
+    "39": "Page 39. Case 37. CASE 37 · YEAR 10 Read the notebook as an interactive book Open the case on a tablet or phone. It is the same notebook you have just read, as an interactive book. robmac10.github.i",
+    "40": "Page 40. Case 37. CASE 37 · YEAR 10 · READ What happened in the towns the students visited, and who recorded it? The Freedom Ride · New South Wales, February 1965 Draft, pending consultation with Ab",
+    "41": "Page 41. Case 37. CASE 37 · YEAR 10 · THE CASE Three witnesses The same three questions for each: What did they say they saw? · Could they really have seen it? · Why might they say it? Each has a pl",
+    "42": "Page 42. Case 37. Ann Curthoys University of Sydney student on the bus · diarist A diary kept on the trip, later published. Source. Ann Curthoys, diary of the 1965 Freedom Ride, AIATSIS collection;",
+    "43": "Page 43. Case 37. My finding CASE 37 · YEAR 10 Other people in the 1965 record, not on the Ask page, are named in Super Sleuths, including Jim Spigelman, Darce Cassidy, and Gary Williams. Living peo",
+    "44": "Page 44. Case 37. CASE 37 · YEAR 10 · OPTIONAL EXTENSION Super Sleuths This section is extra. You do not have to do it. It is for students who want to dig deeper after they have written a finding. O",
+    "45": "Page 45. Case 37. CASE 37 · YEAR 10 · TEACHER NOTE Teacher note Draft, pending consultation with Aboriginal communities of the towns visited, especially Moree and Walgett, and those they name, and w",
+    "46": "Page 46. Case 37. Corrections and flags Two Moree visits, not one. The source draft merged them. First visit, Wednesday 16 February 1965: a picket; children at first refused, then let in; an evening",
+    "47": "Page 47. Case 37. same year, and is acknowledged as the first Aboriginal woman to complete an Australian university degree. Valadian is living: no dates on the student pages. The graduation claim is",
+    "48": "Page 48. Case 37. methods in the movement for the civil rights of First Nations Australians, and the extent to which they contributed to change. Skills of use include comparing perspectives in sourc",
+    "49": "Page 49. Case 4. A full-page illustration or envelope from the casebook.",
+    "50": "Page 50. Case 4. Friday, 28 June 1861. Cooper Creek Clear, cold night; slight breeze from the E.; day beautifully warm and pleasant. Mr Burke suffers greatly from the cold, and is getting extremely",
+    "51": "Page 51. Case 4. CASE 4 · YEAR 5 Read the notebook as an interactive book Open the case on a tablet or phone. It is the same last notebook page you have just read, as an interactive book. robmac10.",
+    "52": "Page 52. Case 4. CASE 4 · YEAR 5 · READ What was the real cause of death? Burke and Wills at Cooper Creek, 1861 Draft, pending consultation with Yandruwandha Yawarrawarrka and related communities,",
+    "53": "Page 53. Case 4. nutriment,” that his pulse was at forty-eight, and that he could only look out, like Mr Micawber, “for something to turn up.” Burke and King then went up the creek for help, leavin",
+    "54": "Page 54. Case 4. William John Wills Surveyor of the expedition · 1834–1861 His Cooper Creek field notebook, recovered after his death. Source. National Library of Australia, MS 30/7, journal of the",
+    "55": "Page 55. Case 4. Alfred Howitt Leader of the Victorian relief party · 1830–1908 His own diary of the day his party found King. Source. A. W. Howitt, diary of the Victorian Contingent Expedition, St",
+    "56": "Page 56. Case 4. My finding CASE 4 · YEAR 5 Other people in the 1861 record, not on the Ask page, are named in Super Sleuths, including William Brahe, Charles Gray, and Pitchery, a man Wills named",
+    "57": "Page 57. Case 4. CASE 4 · YEAR 5 · SUPER SLEUTHS Super Sleuths Optional, and a little harder. These questions stay in the file because the record is not settled. You can also open them in the inter",
+    "58": "Page 58. Case 4. 3 · THE 1994 NATURE PAPER J. W. Earl and B. V. McCleary, “Mystery of the poisoned expedition,” Nature 368 (21 April 1994): 683–684, argued that nardoo (Marsilea drummondii) contain",
+    "59": "Page 59. Case 4. Teacher Note CASE 4 · YEAR 5 · TEACHER NOTE Draft, pending consultation with Yandruwandha Yawarrawarrka and related communities, and with AIATSIS guidance. The opening page The ope",
+    "60": "Page 60. Case 4. Two further flags, for you to raise rather than resolve here. First, the outlined list question was “Why was no one waiting at the Dig Tree?” The written case uses the draft questi",
+    "61": "Page 61. Case 4. Australia; State Library Victoria Burke and Wills collection pages; burkeandwills.net.au (transcriptions and provenance notes, to be checked against the manuscripts). Australian Cu",
+    "62": "Page 62. Case 41. A full-page illustration or envelope from the casebook.",
+    "63": "Page 63. Case 41. Perth, 1989 A gold bar is sent to a television station, to a reporter on the news desk. A note comes with it. The Mickelbergs are innocent and rotting in jail. The bar is heavy. Th",
+    "64": "Page 64. Case 41. CASE 41 · YEAR 10 Read the 1989 page as an interactive book Open the case on a tablet or phone. It is the same 1989 page you have just read, as an interactive book. robmac10.github",
+    "65": "Page 65. Case 41. CASE 41 · YEAR 10 · READ What can the records prove? The Perth Mint Swindle, 1982 This file names living people. It does not say that any living person committed the swindle, or fa",
+    "66": "Page 66. Case 41. The majority was Malcolm CJ and Steytler J. Murray J dissented. The court found a substantial miscarriage of justice. It did not decide who obtained the gold. No one has been convi",
+    "67": "Page 67. Case 41. Ray and Peter Mickelberg The two brothers whose 1983 convictions were quashed in 2004 · Living — no dates given here Their own accounts, from arrest through the appeals and after t",
+    "68": "Page 68. Case 41. The Court of Criminal Appeal (WA) Mickelberg v The Queen [2004] WASCA 145 · 2 July 2004 The court’s published reasons, on an Attorney-General’s reference of the whole case, heard a",
+    "69": "Page 69. Case 41. My finding CASE 41 · YEAR 10 The three witness cards on the last pages are Ray and Peter Mickelberg, Tony Lewandowski, and the Court of Criminal Appeal. Further people and claims —",
+    "70": "Page 70. Case 41. CASE 41 · YEAR 10 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. Do not treat a later allegation as",
+    "71": "Page 71. Case 41. (including the Sydney Morning Herald, 11 June 2002) and as considered by the 2004 court, he said the notes of interview dated 26 July 1982 were fabricated after 2 September 1982, a",
+    "72": "Page 72. Case 41. his convictions were quashed on 4 November 1983. A 2023 ABC feature says his sentence was “cut to eight months.” Those two wordings are not the same. This file does not silently ch",
+    "73": "Page 73. Case 41. Teacher Note CASE 41 · YEAR 10 · TEACHER NOTE This file names living people. It does not say that any living person committed the swindle, or fabricated evidence. Attribute every c",
+    "74": "Page 74. Case 41. (including Ray and Peter Mickelberg, and others still living) get no dates and no photographs. Silhouettes are used, and are labelled as silhouettes, not likenesses. The court card",
+    "75": "Page 75. Case 41. student finding that names a living person as the offender, or as a fabricator, unless that student is quoting a court that has actually found it. The Yellow Rose of Texas / Alan B",
+    "76": "Page 76. Case 42, Year 4. Start here: In Case of Emergency. A story-map of a locked museum and a QR code for the escape room.",
+    "77": "Page 77. Case 42. A full-page illustration or envelope from the casebook.",
+    "78": "Page 78. Case 42. The reef of Frederick Houtman Monday morning, 4 June 1629 The second day of Whitsuntide. A bright, clear, full moon. They think they are still far from land. A white gleam shows on",
+    "79": "Page 79. Case 42. CASE 42 · YEAR 4 Read the page from the night of the wreck as an interactive book Open the case on a tablet or phone. It is the same page from the night of the wreck you have just",
+    "80": "Page 80. Case 42. CASE 42 · YEAR 4 · READ What can the records still not tell us? The Unfinished Voyage, 1629 This file is about a shipwreck, and about the records that remain. People died when the",
+    "81": "Page 81. Case 42. Pelsaert was not on the islands during those weeks. What we know of them comes mainly from later questions, and from what he wrote down afterwards. Green on this page marks what ca",
+    "82": "Page 82. Case 42. Wiebbe Hayes A soldier on the Batavia · Led the group that held the higher island The man who found water, kept his group together, and reached the rescue ship first. Source. Hayes",
+    "83": "Page 83. Case 42. My finding CASE 42 · YEAR 4 The three witness cards are Francisco Pelsaert, Wiebbe Hayes, and the wreck of the Batavia. Further questions — including why later numbers do not match",
+    "84": "Page 84. Case 42. CASE 42 · YEAR 4 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. Some harder parts of this story are",
+    "85": "Page 85. Case 42. 4. Papers that really were lost Pelsaert’s handwritten journal still survives in the Dutch National Archives (VOC 1098, folios 232– 317). It is not right to say, as a fact, that “p",
+    "86": "Page 86. Case 42. If a class takes this question further, it should do so with care, and with guidance from the relevant Aboriginal communities of that coast, and from AIATSIS. Question. Why might “",
+    "87": "Page 87. Case 42. Teacher Note CASE 42 · YEAR 4 · TEACHER NOTE This file is about a shipwreck, and about the records that remain. People died when the ship struck, and many more were killed later, b",
+    "88": "Page 88. Case 42. for moonlight, follow the Western Australian Museum’s account of that night (Jacobsz as head of the watch). The English wording is a short rendering for this file, not a long extra",
+    "89": "Page 89. Case 42. museum staff, if named in class, get no dates and no photographs. No photos of human remains are used. This is not, in the main, a First Nations case, and the envelope is not stamp",
+    "90": "Page 90. Case 13. A full-page illustration or envelope from the casebook.",
+    "91": "Page 91. Case 13. School of Arts, Tenterfield Thursday, 24 October 1889 The great question which they had to consider was, whether the time had not now arisen for the creation on this Australian con",
+    "92": "Page 92. Case 13. CASE 13 · YEAR 6 Read Sir Henry Parkes’s words as an interactive book Open the case on a tablet or phone. It is the same typographic page you have just read, as an interactive book",
+    "93": "Page 93. Case 13. CASE 13 · YEAR 6 · READ Who had a say in making the nation, and who was left out? Federation, 1901 DRAFT, PENDING CONSULTATION Draft, pending consultation. This file asks who was l",
+    "94": "Page 94. Case 13. WHAT IS AGREED · FROM THE 1889–1902 RECORDS, AND AFTER Sir Henry Parkes, five times Premier of New South Wales, spoke at a banquet in the School of Arts at Tenterfield on 24 Octobe",
+    "95": "Page 95. Case 13. DRAFT, PENDING CONSULTATION Draft, pending consultation. This file asks who was left out of the new nation, including Aboriginal and Torres Strait Islander people. Teach it with ca",
+    "96": "Page 96. Case 13. Rose Scott New South Wales suffragist · Founding president, Women’s Political Educational League, 1902 · Died 1925 She spent years campaigning for women to have a say in the laws t",
+    "97": "Page 97. Case 13. Mei Quong Tart Chinese-Australian merchant and community figure, Sydney · Died 1903 A well-known Sydney merchant, he wrote to the first Prime Minister about how the new Commonwealt",
+    "98": "Page 98. Case 13. My finding CASE 13 · YEAR 6 The three witness cards are Edmund Barton, Rose Scott, and Mei Quong Tart. Further questions — including who could vote in the referendums, section 127,",
+    "99": "Page 99. Case 13. CASE 13 · YEAR 6 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. This file is a draft, pending consul",
+    "100": "Page 100. Case 13. colonies the voters were adult men. Aboriginal people were widely excluded in Queensland and Western Australia. In some other colonies the picture is more complicated, and summarie",
+    "101": "Page 101. Case 13. Question. What does a letter to the Prime Minister show that a referendum roll does not? STILL IN DISPUTE, OR ADDED LATER 8. Barton’s line, and the day it was not said “For the fir",
+    "102": "Page 102. Case 13. CASE 13 · YEAR 6 · TEACHER NOTE Teacher Note Draft, pending consultation. This case asks who was left out of the new nation, including Aboriginal and Torres Strait Islander people.",
+    "103": "Page 103. Case 13. not checked word for word against an original letter or paper in this build, so they are not printed on the student page. Pictures Sir Henry Parkes: photograph by Henry Walter Barn",
+    "104": "Page 104. Case 43 envelope. History Case File: Did “protection” ever mean protection? Draft, pending consultation.",
+    "105": "Page 105. Case 43 typographic opener. They called it protection. Verified wording from 1787, 1905 and 1937.",
+    "106": "Page 106. Case 43. CASE 43 · YEAR 10 Read these records as an interactive book Open the case on a tablet or phone. It is the same typographic page you have just read, as an interactive book. They cal",
+    "107": "Page 107. Case 43. CASE 43 · YEAR 10 · READ Did “protection” ever mean protection? The 1787 instructions, the Aborigines Act 1905 (WA), and A. O. Neville DRAFT, PENDING CONSULTATION Draft, pending co",
+    "108": "Page 108. Case 43. “conciliate their affections,” to enjoin subjects to “live in amity and kindness with them,” and to punish anyone who would “wantonly destroy them.” The same instructions also aske",
+    "109": "Page 109. Case 43. Arthur Phillip Received the 1787 instructions · First Governor of New South Wales, 1788–1792 · Died 1814 What they said. The instructions told him to “conciliate their affections,”",
+    "110": "Page 110. Case 43. their ultimate absorption by the people of the Commonwealth.” Could they really have seen it? He was Chief Protector, then Commissioner, and he was in the room in Canberra when the",
+    "111": "Page 111. Case 43. deputation had to argue, in 1928, that “protection” was not protecting them, and what happened after the Premier heard them. Source. The facts of the deputation — the date, the Pre",
+    "112": "Page 112. Case 43. Why it still matters The word “protection” is still used about laws, offices, and children. The people named in the 1905 Act, and the families connected to Moore River and to the 1",
+    "113": "Page 113. Case 43. CASE 43 · YEAR 10 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. This file is a draft, pending consu",
+    "114": "Page 114. Case 43. 4. Neville’s 1937 words, and later retellings The typographic close line, and the sentences about taking children, are from the official 1937 conference report. They are often shor",
+    "115": "Page 115. Case 43. STILL IN DISPUTE, OR ADDED LATER 8. Who is missing from the three cards The typographic page and the witness cards are official words, and the words of one organised deputation of",
+    "116": "Page 116. Case 43. Teacher Note CASE 43 · YEAR 10 · TEACHER NOTE DRAFT, PENDING CONSULTATION Draft, pending consultation. This case asks whether “protection” ever meant protection, including for Abor",
+    "117": "Page 117. Case 43. Dictionary of Biography and the museum caption of the 1928 photograph. Collier’s “great obligation” line should be checked in those papers before it is taught as a confirmed quotat"
   },
   "pageCases": {
     "1": null,
@@ -1211,9 +705,9 @@ window.BOOK = {
     "3": null,
     "4": null,
     "5": null,
-    "6": null,
-    "7": null,
-    "8": null,
+    "6": 5,
+    "7": 5,
+    "8": 5,
     "9": 5,
     "10": 5,
     "11": 5,
@@ -1230,9 +724,9 @@ window.BOOK = {
     "22": 5,
     "23": 5,
     "24": 5,
-    "25": 5,
-    "26": 5,
-    "27": 5,
+    "25": 23,
+    "26": 23,
+    "27": 23,
     "28": 23,
     "29": 23,
     "30": 23,
@@ -1242,9 +736,9 @@ window.BOOK = {
     "34": 23,
     "35": 23,
     "36": 23,
-    "37": 23,
-    "38": 23,
-    "39": 23,
+    "37": 37,
+    "38": 37,
+    "39": 37,
     "40": 37,
     "41": 37,
     "42": 37,
@@ -1254,9 +748,9 @@ window.BOOK = {
     "46": 37,
     "47": 37,
     "48": 37,
-    "49": 37,
-    "50": 37,
-    "51": 37,
+    "49": 4,
+    "50": 4,
+    "51": 4,
     "52": 4,
     "53": 4,
     "54": 4,
@@ -1267,9 +761,9 @@ window.BOOK = {
     "59": 4,
     "60": 4,
     "61": 4,
-    "62": 4,
-    "63": 4,
-    "64": 4,
+    "62": 41,
+    "63": 41,
+    "64": 41,
     "65": 41,
     "66": 41,
     "67": 41,
@@ -1281,9 +775,9 @@ window.BOOK = {
     "73": 41,
     "74": 41,
     "75": 41,
-    "76": 41,
-    "77": 41,
-    "78": 41,
+    "76": 42,
+    "77": 42,
+    "78": 42,
     "79": 42,
     "80": 42,
     "81": 42,
@@ -1295,9 +789,9 @@ window.BOOK = {
     "87": 42,
     "88": 42,
     "89": 42,
-    "90": 42,
-    "91": 42,
-    "92": 42,
+    "90": 13,
+    "91": 13,
+    "92": 13,
     "93": 13,
     "94": 13,
     "95": 13,
@@ -1309,8 +803,19 @@ window.BOOK = {
     "101": 13,
     "102": 13,
     "103": 13,
-    "104": 13,
-    "105": 13,
-    "106": 13
+    "104": 43,
+    "105": 43,
+    "106": 43,
+    "107": 43,
+    "108": 43,
+    "109": 43,
+    "110": 43,
+    "111": 43,
+    "112": 43,
+    "113": 43,
+    "114": 43,
+    "115": 43,
+    "116": 43,
+    "117": 43
   }
 };
