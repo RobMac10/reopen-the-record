@@ -276,6 +276,9 @@
       elImg.setAttribute("data-page", String(n));
     }
     elImg.alt = alt(n);
+    elImg.setAttribute("tabindex", "0");
+    elImg.setAttribute("role", "button");
+    elImg.setAttribute("aria-label", alt(n) + " Tap to enlarge.");
   }
 
   function spreadPair(n) {
@@ -288,6 +291,7 @@
     const useSpread = spread && window.matchMedia("(min-width:841px)").matches && !textMode;
     $("stage").hidden = textMode;
     $("text-view").hidden = !textMode;
+    if ($("fit-hint")) $("fit-hint").hidden = textMode;
     $("stage").classList.toggle("spread-on", useSpread);
     $("book").classList.toggle("spread", useSpread);
     $("btn-text").setAttribute("aria-pressed", textMode ? "true" : "false");
@@ -403,7 +407,13 @@
     setTitle();
     if (view === "cover") renderWrittenStrip();
     if (view === "contents") renderContents();
-    if (view === "reader") renderReader();
+    if (view === "reader") {
+      renderReader();
+      requestAnimationFrame(function () {
+        syncPageMax();
+        requestAnimationFrame(syncPageMax);
+      });
+    }
   }
 
   function turn(delta, push) {
@@ -446,6 +456,185 @@
       .replace(/"/g, "&quot;");
   }
 
+
+  function syncPageMax() {
+    if (view !== "reader" || textMode) return;
+    const header = document.querySelector(".site-header");
+    const toolbar = document.querySelector(".toolbar");
+    const dock = $("dock");
+    const hint = $("fit-hint");
+    const stageEl = $("stage");
+    if (!stageEl) return;
+    const headerH = header && header.offsetParent !== null ? header.offsetHeight : 0;
+    const toolbarH = toolbar ? toolbar.offsetHeight : 0;
+    const hintH = hint && !hint.hidden && hint.offsetParent !== null ? hint.offsetHeight : 0;
+    const dockH = dock ? dock.offsetHeight : 0;
+    const cs = getComputedStyle(stageEl);
+    const padY = (parseFloat(cs.paddingTop) || 0) + (parseFloat(cs.paddingBottom) || 0);
+    const padX = (parseFloat(cs.paddingLeft) || 0) + (parseFloat(cs.paddingRight) || 0);
+    const vv = window.visualViewport;
+    const vh = vv ? vv.height : window.innerHeight;
+    const vw = vv ? vv.width : window.innerWidth;
+    const h = Math.floor(vh - headerH - toolbarH - hintH - dockH - padY);
+    const w = Math.floor(vw - padX);
+    document.documentElement.style.setProperty("--page-max-h", Math.max(80, h) + "px");
+    document.documentElement.style.setProperty("--page-max-w", Math.max(80, w) + "px");
+  }
+
+  let lightboxOpen = false;
+  let lbPage = 1;
+  let lbScale = 1;
+  let lbX = 0;
+  let lbY = 0;
+  const lbPointers = new Map();
+  let lbPinch0 = null;
+  let lbDrag0 = null;
+  let lastTap = { t: 0, x: 0, y: 0 };
+
+  function lbFit() {
+    const stageEl = $("lb-stage");
+    const img = $("lb-img");
+    if (!stageEl || !img || !img.naturalWidth) return { fit: 1, sw: 1, sh: 1, nw: 1, nh: 1 };
+    const sw = stageEl.clientWidth;
+    const sh = stageEl.clientHeight;
+    const nw = img.naturalWidth;
+    const nh = img.naturalHeight;
+    const fit = Math.min(sw / nw, sh / nh);
+    return { fit: fit, sw: sw, sh: sh, nw: nw, nh: nh };
+  }
+
+  function layoutLb() {
+    const img = $("lb-img");
+    const info = lbFit();
+    let w = info.nw * info.fit * lbScale;
+    let h = info.nh * info.fit * lbScale;
+    if (w <= info.sw) lbX = 0;
+    if (h <= info.sh) lbY = 0;
+    let left = (info.sw - w) / 2 + lbX;
+    let top = (info.sh - h) / 2 + lbY;
+    if (w > info.sw) {
+      const minL = info.sw - w;
+      const maxL = 0;
+      left = Math.min(maxL, Math.max(minL, left));
+      lbX = left - (info.sw - w) / 2;
+    } else {
+      left = (info.sw - w) / 2;
+    }
+    if (h > info.sh) {
+      const minT = info.sh - h;
+      const maxT = 0;
+      top = Math.min(maxT, Math.max(minT, top));
+      lbY = top - (info.sh - h) / 2;
+    } else {
+      top = (info.sh - h) / 2;
+    }
+    img.style.position = "absolute";
+    img.style.left = left + "px";
+    img.style.top = top + "px";
+    img.style.width = w + "px";
+    img.style.height = h + "px";
+    img.style.maxWidth = "none";
+    img.style.maxHeight = "none";
+    img.style.transform = "none";
+    $("lb-stage").style.cursor = lbScale > 1.01 ? "grab" : "zoom-in";
+  }
+
+  function zoomLbAt(cx, cy, next) {
+    const stageEl = $("lb-stage");
+    const rect = stageEl.getBoundingClientRect();
+    const px = cx - rect.left;
+    const py = cy - rect.top;
+    const img = $("lb-img");
+    const left0 = parseFloat(img.style.left) || 0;
+    const top0 = parseFloat(img.style.top) || 0;
+    const w0 = img.offsetWidth || 1;
+    const h0 = img.offsetHeight || 1;
+    const fx = (px - left0) / w0;
+    const fy = (py - top0) / h0;
+    lbScale = Math.max(1, Math.min(6, next));
+    if (lbScale <= 1.01) {
+      lbScale = 1;
+      lbX = 0;
+      lbY = 0;
+      layoutLb();
+      return;
+    }
+    const info = lbFit();
+    const w2 = info.nw * info.fit * lbScale;
+    const h2 = info.nh * info.fit * lbScale;
+    lbX = px - (info.sw - w2) / 2 - fx * w2;
+    lbY = py - (info.sh - h2) / 2 - fy * h2;
+    layoutLb();
+  }
+
+  function openLightbox(n) {
+    if (textMode) return;
+    lbPage = clamp(n || page);
+    lightboxOpen = true;
+    document.body.classList.add("lb-open");
+    $("lightbox").hidden = false;
+    lbScale = 1;
+    lbX = 0;
+    lbY = 0;
+    const img = $("lb-img");
+    const show = function () {
+      layoutLb();
+    };
+    img.onload = show;
+    img.src = src(lbPage);
+    img.setAttribute("data-page", String(lbPage));
+    img.alt = alt(lbPage);
+    if (img.complete && img.naturalWidth) show();
+    $("lb-status").textContent = "Page " + lbPage + " of " + TOTAL;
+    $("lb-prev").disabled = lbPage <= 1;
+    $("lb-next").disabled = lbPage >= TOTAL;
+    $("lb-close").focus();
+    if (page !== lbPage) {
+      page = lbPage;
+      history.replaceState(null, "", location.pathname + location.search + "#p=" + page);
+      setTitle();
+      renderReader();
+      requestAnimationFrame(syncPageMax);
+    }
+  }
+
+  function closeLightbox() {
+    if (!lightboxOpen) return;
+    lightboxOpen = false;
+    document.body.classList.remove("lb-open");
+    $("lightbox").hidden = true;
+    lbPointers.clear();
+    lbPinch0 = null;
+    lbDrag0 = null;
+    lbScale = 1;
+    lbX = 0;
+    lbY = 0;
+  }
+
+  function lbTurn(delta) {
+    const next = clamp(lbPage + delta);
+    if (next === lbPage) return;
+    lbPage = next;
+    page = next;
+    history.replaceState(null, "", location.pathname + location.search + "#p=" + page);
+    setTitle();
+    renderReader();
+    requestAnimationFrame(syncPageMax);
+    lbScale = 1;
+    lbX = 0;
+    lbY = 0;
+    const img = $("lb-img");
+    const show = function () { layoutLb(); };
+    img.onload = show;
+    img.src = src(lbPage);
+    img.setAttribute("data-page", String(lbPage));
+    img.alt = alt(lbPage);
+    if (img.complete && img.naturalWidth) show();
+    $("lb-status").textContent = "Page " + lbPage + " of " + TOTAL;
+    $("lb-prev").disabled = lbPage <= 1;
+    $("lb-next").disabled = lbPage >= TOTAL;
+  }
+
   // Events
   $("btn-prev").addEventListener("click", () => turn(-1));
   $("btn-next").addEventListener("click", () => turn(1));
@@ -479,8 +668,25 @@
   });
 
   document.addEventListener("keydown", (e) => {
+    if (lightboxOpen) {
+      if (e.key === "Escape") { e.preventDefault(); closeLightbox(); return; }
+      if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === "j") {
+        e.preventDefault(); lbTurn(1); return;
+      }
+      if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "k") {
+        e.preventDefault(); lbTurn(-1); return;
+      }
+      if (e.key === "Home") { e.preventDefault(); lbTurn(1 - lbPage); return; }
+      if (e.key === "End") { e.preventDefault(); lbTurn(TOTAL - lbPage); return; }
+      return;
+    }
     if (view !== "reader") return;
     if (e.target.matches("input, select, textarea")) return;
+    if ((e.key === "Enter" || e.key === " ") && e.target.closest && e.target.closest(".leaf img")) {
+      e.preventDefault();
+      openLightbox(Number(e.target.getAttribute("data-page")) || page);
+      return;
+    }
     if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === "j") {
       e.preventDefault();
       turn(1);
@@ -496,38 +702,160 @@
     } else if (e.key === "t" || e.key === "T") {
       textMode = !textMode;
       renderReader();
+      requestAnimationFrame(syncPageMax);
     }
   });
 
   const stage = $("stage");
-  stage.addEventListener("touchstart", (e) => {
-    if (e.changedTouches[0]) {
-      touchStartX = e.changedTouches[0].clientX;
-      touchStartY = e.changedTouches[0].clientY;
+  let swipe = null;
+  function onStageDown(e) {
+    if (textMode || lightboxOpen) return;
+    if (e.target.closest(".edge, a, button, select, input, .dock")) return;
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    swipe = {
+      x: e.clientX,
+      y: e.clientY,
+      t: Date.now(),
+      img: e.target.closest(".leaf img"),
+      page: e.target.closest(".leaf img") ? Number(e.target.closest(".leaf img").getAttribute("data-page")) || page : page,
+      moved: false
+    };
+  }
+  function onStageMove(e) {
+    if (!swipe) return;
+    if (Math.abs(e.clientX - swipe.x) > 12 || Math.abs(e.clientY - swipe.y) > 12) swipe.moved = true;
+  }
+  function onStageUp(e) {
+    if (!swipe) return;
+    const dx = e.clientX - swipe.x;
+    const dy = e.clientY - swipe.y;
+    const started = swipe;
+    swipe = null;
+    if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) turn(1);
+      else turn(-1);
+      return;
     }
-  }, { passive: true });
-  stage.addEventListener("touchend", (e) => {
-    if (touchStartX == null) return;
-    const t = e.changedTouches[0];
-    if (!t) return;
-    const dx = t.clientX - touchStartX;
-    const dy = t.clientY - touchStartY;
-    touchStartX = touchStartY = null;
-    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
-    if (dx < 0) turn(1);
-    else turn(-1);
-  }, { passive: true });
+    if (!started.moved && started.img && Math.abs(dx) < 12 && Math.abs(dy) < 12) {
+      openLightbox(started.page);
+    }
+  }
+  stage.addEventListener("pointerdown", onStageDown);
+  stage.addEventListener("pointermove", onStageMove);
+  stage.addEventListener("pointerup", onStageUp);
+  stage.addEventListener("pointercancel", function () { swipe = null; });
+  stage.addEventListener("keydown", function () { /* Enter handled globally */ });
 
-  // Click left/right thirds of the page image to turn, when not in text mode.
-  $("book").addEventListener("click", (e) => {
-    if (textMode) return;
-    const img = e.target.closest("img");
-    if (!img) return;
-    const r = img.getBoundingClientRect();
-    const x = e.clientX - r.left;
-    if (x < r.width * 0.22) turn(-1);
-    else if (x > r.width * 0.78) turn(1);
+  $("lb-close").addEventListener("click", closeLightbox);
+  $("lb-prev").addEventListener("click", function (e) { e.stopPropagation(); lbTurn(-1); });
+  $("lb-next").addEventListener("click", function (e) { e.stopPropagation(); lbTurn(1); });
+  $("lightbox").addEventListener("click", function (e) {
+    if (e.target === $("lightbox") || e.target === $("lb-stage") || e.target.classList.contains("lb-bar") || e.target.classList.contains("lb-caption") || e.target.classList.contains("lb-status")) {
+      if (e.target === $("lb-stage")) return; // stage clicks handled as zoom / backdrop below
+      if (e.target === $("lightbox") || e.target.classList.contains("lb-bar") || e.target.classList.contains("lb-caption") || e.target.id === "lb-status") {
+        closeLightbox();
+      }
+    }
   });
+
+  const lbStage = $("lb-stage");
+  lbStage.addEventListener("click", function (e) {
+    // Click on empty stage (backdrop), not the image, closes — unless it was a drag.
+    if (e.target === lbStage && !lbDrag0) closeLightbox();
+  });
+
+  function pointerMid() {
+    const pts = Array.from(lbPointers.values());
+    if (pts.length === 0) return null;
+    const x = pts.reduce((s, p) => s + p.x, 0) / pts.length;
+    const y = pts.reduce((s, p) => s + p.y, 0) / pts.length;
+    return { x: x, y: y };
+  }
+  function pointerDist() {
+    const pts = Array.from(lbPointers.values());
+    if (pts.length < 2) return 0;
+    const a = pts[0], b = pts[1];
+    return Math.hypot(a.x - b.x, a.y - b.y);
+  }
+
+  lbStage.addEventListener("pointerdown", function (e) {
+    if (!lightboxOpen) return;
+    lbStage.setPointerCapture(e.pointerId);
+    lbPointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (lbPointers.size === 2) {
+      lbPinch0 = { dist: pointerDist(), scale: lbScale };
+      lbDrag0 = null;
+    } else if (lbPointers.size === 1) {
+      lbDrag0 = { x: e.clientX, y: e.clientY, lx: lbX, ly: lbY, moved: false, t: Date.now() };
+    }
+  });
+  lbStage.addEventListener("pointermove", function (e) {
+    if (!lightboxOpen || !lbPointers.has(e.pointerId)) return;
+    lbPointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (lbPointers.size >= 2 && lbPinch0 && lbPinch0.dist) {
+      const mid = pointerMid();
+      const d = pointerDist();
+      zoomLbAt(mid.x, mid.y, lbPinch0.scale * (d / lbPinch0.dist));
+      return;
+    }
+    if (lbDrag0 && lbPointers.size === 1) {
+      const dx = e.clientX - lbDrag0.x;
+      const dy = e.clientY - lbDrag0.y;
+      if (Math.abs(dx) > 6 || Math.abs(dy) > 6) lbDrag0.moved = true;
+      if (lbScale > 1.01) {
+        lbX = lbDrag0.lx + dx;
+        lbY = lbDrag0.ly + dy;
+        layoutLb();
+      }
+    }
+  });
+  function lbPointerEnd(e) {
+    if (!lbPointers.has(e.pointerId)) return;
+    const drag = lbDrag0;
+    lbPointers.delete(e.pointerId);
+    if (lbPointers.size < 2) lbPinch0 = null;
+    if (lbPointers.size === 0) {
+      const wasDrag = drag;
+      lbDrag0 = null;
+      if (wasDrag && wasDrag.moved) {
+        if (lbScale <= 1.01) {
+          const dx = e.clientX - wasDrag.x;
+          const dy = e.clientY - wasDrag.y;
+          if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy)) {
+            if (dx < 0) lbTurn(1);
+            else lbTurn(-1);
+          }
+        }
+        return;
+      }
+      if (e.target !== $("lb-img")) {
+        closeLightbox();
+        return;
+      }
+      const now = Date.now();
+      const dt = now - lastTap.t;
+      const dist = Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y);
+      if (dt < 320 && dist < 28) {
+        lastTap.t = 0;
+        if (lbScale > 1.01) zoomLbAt(e.clientX, e.clientY, 1);
+        else zoomLbAt(e.clientX, e.clientY, 2.5);
+      } else {
+        lastTap = { t: now, x: e.clientX, y: e.clientY };
+      }
+    }
+  }
+  lbStage.addEventListener("pointerup", lbPointerEnd);
+  lbStage.addEventListener("pointercancel", function (e) {
+    lbPointers.delete(e.pointerId);
+    if (lbPointers.size < 2) lbPinch0 = null;
+    if (lbPointers.size === 0) lbDrag0 = null;
+  });
+  lbStage.addEventListener("wheel", function (e) {
+    if (!lightboxOpen) return;
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
+    zoomLbAt(e.clientX, e.clientY, lbScale * factor);
+  }, { passive: false });
 
   window.addEventListener("popstate", () => {
     const next = parseHash();
@@ -543,16 +871,24 @@
       render();
     }
   });
-  window.addEventListener("resize", () => {
-    if (view === "reader") renderReader();
-  });
+  function onViewportChange() {
+    syncHeaderVar();
+    if (view === "reader") {
+      renderReader();
+      syncPageMax();
+    }
+    if (lightboxOpen) layoutLb();
+  }
+  window.addEventListener("resize", onViewportChange);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", onViewportChange);
+  }
 
   // Measure header for sticky toolbar offset
   function syncHeaderVar() {
     const h = document.querySelector(".site-header");
     if (h) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
   }
-  window.addEventListener("resize", syncHeaderVar);
   syncHeaderVar();
 
   $("page-num").setAttribute("max", String(TOTAL));
