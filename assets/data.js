@@ -2,7 +2,7 @@
 window.BOOK = {
   "bookTitle": "Reopen the Record: Australian Histories",
   "tagline": "Real people. Real records. Real questions the record never settled.",
-  "pageCount": 187,
+  "pageCount": 173,
   "startHere": {
     "title": "Start here: In Case of Emergency",
     "page": 7,
@@ -296,9 +296,9 @@ window.BOOK = {
     ],
     "13": [
       {
-        "id": "perth-mint-case",
-        "label": "Perth Mint case",
-        "url": "https://robmac10.github.io/perth-mint-case/",
+        "id": "mabo-case",
+        "label": "Mabo case",
+        "url": "https://robmac10.github.io/mabo-case/",
         "pages": [
           161,
           162,
@@ -312,31 +312,7 @@ window.BOOK = {
           170,
           171,
           172,
-          173,
-          174
-        ],
-        "blurb": "Open the Perth Mint case as an interactive book."
-      }
-    ],
-    "14": [
-      {
-        "id": "mabo-case",
-        "label": "Mabo case",
-        "url": "https://robmac10.github.io/mabo-case/",
-        "pages": [
-          175,
-          176,
-          177,
-          178,
-          179,
-          180,
-          181,
-          182,
-          183,
-          184,
-          185,
-          186,
-          187
+          173
         ],
         "blurb": "Open the Mabo case as an interactive book."
       }
@@ -867,20 +843,22 @@ window.BOOK = {
         10
       ],
       "yearLabel": "Year 10",
-      "title": "The Perth Mint Swindle, 1982",
-      "question": "What can the records prove?",
-      "codes": "AC9HH10K20",
+      "title": "Mabo and terra nullius, 1982–1992",
+      "question": "Was Australia ever really treated as ‘nobody’s land’?",
+      "codes": "AC9HH10K10, AC9HH10K11, AC9HH10K13",
       "status": "Written",
-      "tags": [],
-      "date": "22 June 1982",
+      "tags": [
+        "First Nations: needs consultation"
+      ],
+      "date": "3 June 1992",
       "written": true,
       "start": 161,
-      "end": 174,
+      "end": 173,
       "apps": [
         {
-          "id": "perth-mint-case",
-          "label": "Perth Mint case",
-          "url": "https://robmac10.github.io/perth-mint-case/",
+          "id": "mabo-case",
+          "label": "Mabo case",
+          "url": "https://robmac10.github.io/mabo-case/",
           "pages": [
             161,
             162,
@@ -894,66 +872,22 @@ window.BOOK = {
             170,
             171,
             172,
-            173,
-            174
-          ],
-          "blurb": "Open the Perth Mint case as an interactive book."
-        }
-      ],
-      "envelope": 161
-    },
-    {
-      "num": 14,
-      "year": 10,
-      "years": [
-        10
-      ],
-      "yearLabel": "Year 10",
-      "title": "Mabo and terra nullius, 1982–1992",
-      "question": "Was Australia ever really treated as ‘nobody’s land’?",
-      "codes": "AC9HH10K10, AC9HH10K11, AC9HH10K13",
-      "status": "Written",
-      "tags": [
-        "First Nations: needs consultation"
-      ],
-      "date": "3 June 1992",
-      "written": true,
-      "start": 175,
-      "end": 187,
-      "apps": [
-        {
-          "id": "mabo-case",
-          "label": "Mabo case",
-          "url": "https://robmac10.github.io/mabo-case/",
-          "pages": [
-            175,
-            176,
-            177,
-            178,
-            179,
-            180,
-            181,
-            182,
-            183,
-            184,
-            185,
-            186,
-            187
+            173
           ],
           "blurb": "Open the Mabo case as an interactive book."
         }
       ],
-      "envelope": 175
+      "envelope": 161
     }
   ],
   "qr": "assets/qr-book.png",
   "url": "https://robmac10.github.io/reopen-the-record/",
   "pageAlts": {
     "1": "Book cover: a manila exhibit envelope titled Reopen the Record: Australian Histories, Years 4 to 10, stamped Case Reopened, with an exhibit tag reading Sample Cases, and year-level tabs along the right edge.",
-    "2": "Title page. Reopen the Record: Australian Histories. History case files, Years 4 to 10. Sample: fourteen cases in chronological order, thirteen written in full.",
+    "2": "Title page. Reopen the Record: Australian Histories. History case files, Years 4 to 10. Sample: thirteen cases in chronological order, twelve written in full.",
     "3": "Page 3. How a case file works: every case is a real event, with witnesses, a finding, and optional Super Sleuths.",
-    "4": "Page 4. Printed contents: fourteen cases in chronological order, with the list beginning on this page.",
-    "5": "Page 5. Printed contents continued: cases 3 to 14, including Case 11, the hospital ship Centaur, which is listed and not yet written.",
+    "4": "Page 4. Printed contents: thirteen cases in chronological order, with the list beginning on this page.",
+    "5": "Page 5. Printed contents continued: cases 4 to 13, including Case 11, the hospital ship Centaur, which is listed and not yet written.",
     "6": "Page 6. By year level index for Years 4 to 10, with case numbers and Australian Curriculum v9 codes.",
     "7": "Page 7. Case 1, Year 4. Start here: In Case of Emergency. A story-map of a locked museum and a QR code for the escape room.",
     "8": "Page 8. Case 1. A full-page illustration or envelope from the casebook.",
@@ -1110,32 +1044,18 @@ window.BOOK = {
     "159": "Page 159. Case 12. same year, and is acknowledged as the first Aboriginal woman to complete an Australian university degree. Valadian is living: no dates on the student pages. The graduation claim is omitted from the student card. A misattributed quotation. The source draft gave Ann Curthoys the li",
     "160": "Page 160. Case 12. methods in the movement for the civil rights of First Nations Australians, and the extent to which they contributed to change. Skills of use include comparing perspectives in sources and analysing contested interpretations. Primary and near-primary. Ann Curthoys, diary of the 196",
     "161": "Page 161. Case 13. A full-page illustration or envelope from the casebook.",
-    "162": "Page 162. Case 13. Perth, 1989 A gold bar is sent to a television station, to a reporter on the news desk. A note comes with it. The Mickelbergs are innocent and rotting in jail. The bar is heavy. The sentence is short. The convictions have not moved. Reopen the Record: Australian Histories · sampl",
-    "163": "Page 163. Case 13. CASE 13 · YEAR 10 Read the 1989 page as an interactive book Open the case on a tablet or phone. It is the same 1989 page you have just read, as an interactive book. robmac10.github.io/perth-mint-case Scan to open Then turn the page and open the case file. Reopen the Record: Austr",
-    "164": "Page 164. Case 13. CASE 13 · YEAR 10 · READ What can the records prove? The Perth Mint Swindle, 1982 This file names living people. It does not say that any living person committed the swindle, or fabricated evidence. Attribute every claim. The 2004 court quashed the convictions. It did not decide",
-    "165": "Page 165. Case 13. The majority was Malcolm CJ and Steytler J. Murray J dissented. The court found a substantial miscarriage of justice. It did not decide who obtained the gold. No one has been convicted of the swindle since. In December 2007, the WA Police Commissioner, Karl O’Callaghan, issued a",
-    "166": "Page 166. Case 13. Ray and Peter Mickelberg The two brothers whose 1983 convictions were quashed in 2004 · Living — no dates given here Their own accounts, from arrest through the appeals and after the convictions were quashed. Source. Public statements and evidence over many years, including accou",
-    "167": "Page 167. Case 13. The Court of Criminal Appeal (WA) Mickelberg v The Queen [2004] WASCA 145 · 2 July 2004 The court’s published reasons, on an Attorney-General’s reference of the whole case, heard as if it were an appeal. Source. Mickelberg v The Queen [2004] WASCA 145 (Malcolm CJ, Murray J, Steyt",
-    "168": "Page 168. Case 13. My finding CASE 13 · YEAR 10 The three witness cards on the last pages are Ray and Peter Mickelberg, Tony Lewandowski, and the Court of Criminal Appeal. Further people and claims — including Brian Mickelberg, Alison Fan, Don Hancock, and later allegations about a fingerprint — ar",
-    "169": "Page 169. Case 13. CASE 13 · YEAR 10 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. Do not treat a later allegation as if the 2004 court had found it. Living people are not given dates here. Open these investigations in",
-    "170": "Page 170. Case 13. (including the Sydney Morning Herald, 11 June 2002) and as considered by the 2004 court, he said the notes of interview dated 26 July 1982 were fabricated after 2 September 1982, and that evidence given about those notes was false. He is also reported as swearing that he had told",
-    "171": "Page 171. Case 13. his convictions were quashed on 4 November 1983. A 2023 ABC feature says his sentence was “cut to eight months.” Those two wordings are not the same. This file does not silently choose the neater one. Brian died in a plane crash in 1986. He was not a petitioner in the 2004 appeal",
-    "172": "Page 172. Case 13. Teacher Note CASE 13 · YEAR 10 · TEACHER NOTE This file names living people. It does not say that any living person committed the swindle, or fabricated evidence. Attribute every claim. The 2004 court quashed the convictions. It did not decide who obtained the gold. No one has be",
-    "173": "Page 173. Case 13. (including Ray and Peter Mickelberg, and others still living) get no dates and no photographs. Silhouettes are used, and are labelled as silhouettes, not likenesses. The court card is a scales symbol, not a judge’s portrait. Tony Lewandowski’s 2002 affidavit is a source the 2004",
-    "174": "Page 174. Case 13. student finding that names a living person as the offender, or as a fabricator, unless that student is quoting a court that has actually found it. The Yellow Rose of Texas / Alan Bond material, if discussed at all, stays in Super Sleuths as a separate matter, not as proof of the",
-    "175": "Page 175. Case 14. A full-page illustration or envelope from the casebook.",
-    "176": "Page 176. Case 14. History. Last period. The photocopy is dated 3 June 1992 They keep saying terra nullius like it’s a spell they already broke. I wrote it in my book and then I looked at the date. 3 June 1992. He was already dead. The first sheet is a man on Mer saying his father told him the land",
-    "177": "Page 177. Case 14. CASE 14 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 Read the notebook as an interactive book Open the case on a tablet or phone. It is the same typographic notebook, the same three witnesses, and the same finding box. The QR uses an island emblem at the centre. robmac10.github.",
-    "178": "Page 178. Case 14. A NOTE BEFORE YOU READ This case names Torres Strait Islander people who have died, including Eddie Koiki Mabo (died 21 January 1992). Draft, pending consultation with the Meriam people of Mer, and with AIATSIS guidance. No photograph of Eddie Koiki Mabo is used. A note for teach",
-    "179": "Page 179. Case 14. terra nullius.” Historians and some lawyers debate when the Latin phrase itself was first used in Australian law, and whether earlier official language used other words for a similar idea. That debate is flagged, not settled, in this file. The Native Title Act 1993 (Cth) followed",
-    "180": "Page 180. Case 14. Three witnesses CASE 14 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · ASK Each witness is a real person, or a real set of words from the record. A period portrait is used where one exists and is free to reuse. Otherwise you will see a plain silhouette, not a likeness. Ask the s",
-    "181": "Page 181. Case 14. Justice Brennan Justice of the High Court of Australia · leading reasons in Mabo (No 2), 3 June 1992 A written judgment, not a speech from the street. What they said Brennan J wrote that “the fiction by which the rights and interests of indigenous inhabitants in land were treated",
-    "182": "Page 182. Case 14. The State of Queensland Defendant in the Mabo litigation · Parliament of Queensland, 1985 The government’s case, in the words of a statute passed while the Meriam claim was already before the courts. What they said The long title was “An Act to allay any doubts that may exist con",
-    "183": "Page 183. Case 14. My finding CASE 14 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · DECIDE The three witness cards are Eddie Koiki Mabo, Justice Brennan, and the State of Queensland, speaking through the 1985 Act. There is no answer at the back. The narrator of the notebook is invented. The quote",
-    "184": "Page 184. Case 14. CASE 14 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. This file is a draft, pending consultation with the Meriam people of Mer, and with AIATSIS guidance",
-    "185": "Page 185. Case 14. STILL IN DISPUTE, OR ADDED LATER 4. What the 1992 orders did, and did not do The Court recognised native title, and Meriam rights in most of the Murray Islands, subject to some particular Crown interests. The Native Title Act 1993 followed. This file does not pretend the decision",
-    "186": "Page 186. Case 14. CASE 14 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · TEACHER Teacher Note NOTE This note is for the teacher. It is not a student page. The user’s name is kept off the student pages and off the app. What’s true about the opener The narrator is an invented Year 10 student. The q",
-    "187": "Page 187. Case 14. robmac10.github.io/mabo-case Super Sleuths: robmac10.github.io/mabo-case/#sleuth Mabo v Queensland (No 2) [1992] HCA 23; Mabo (No 1) [1988] HCA 69; Queensland Coast Islands Declaratory Act 1985; AIATSIS, “The Mabo Case”; National Museum of Australia, “Mabo decision”; Trevor Graha"
+    "162": "Page 162. Case 13. History. Last period. The photocopy is dated 3 June 1992 They keep saying terra nullius like it’s a spell they already broke. I wrote it in my book and then I looked at the date. 3 June 1992. He was already dead. The first sheet is a man on Mer saying his father told him the land",
+    "163": "Page 163. Case 13. CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 Read the notebook as an interactive book Open the case on a tablet or phone. It is the same typographic notebook, the same three witnesses, and the same finding box. The QR uses an island emblem at the centre. robmac10.github.",
+    "164": "Page 164. Case 13. A NOTE BEFORE YOU READ This case names Torres Strait Islander people who have died, including Eddie Koiki Mabo (died 21 January 1992). Draft, pending consultation with the Meriam people of Mer, and with AIATSIS guidance. No photograph of Eddie Koiki Mabo is used. A note for teach",
+    "165": "Page 165. Case 13. terra nullius.” Historians and some lawyers debate when the Latin phrase itself was first used in Australian law, and whether earlier official language used other words for a similar idea. That debate is flagged, not settled, in this file. The Native Title Act 1993 (Cth) followed",
+    "166": "Page 166. Case 13. Three witnesses CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · ASK Each witness is a real person, or a real set of words from the record. A period portrait is used where one exists and is free to reuse. Otherwise you will see a plain silhouette, not a likeness. Ask the s",
+    "167": "Page 167. Case 13. Justice Brennan Justice of the High Court of Australia · leading reasons in Mabo (No 2), 3 June 1992 A written judgment, not a speech from the street. What they said Brennan J wrote that “the fiction by which the rights and interests of indigenous inhabitants in land were treated",
+    "168": "Page 168. Case 13. The State of Queensland Defendant in the Mabo litigation · Parliament of Queensland, 1985 The government’s case, in the words of a statute passed while the Meriam claim was already before the courts. What they said The long title was “An Act to allay any doubts that may exist con",
+    "169": "Page 169. Case 13. My finding CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · DECIDE The three witness cards are Eddie Koiki Mabo, Justice Brennan, and the State of Queensland, speaking through the 1985 Act. There is no answer at the back. The narrator of the notebook is invented. The quote",
+    "170": "Page 170. Case 13. CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · SUPER SLEUTHS Super Sleuths Go further only if you want to. Amber marks what is still disputed, or what later writers added. This file is a draft, pending consultation with the Meriam people of Mer, and with AIATSIS guidance",
+    "171": "Page 171. Case 13. STILL IN DISPUTE, OR ADDED LATER 4. What the 1992 orders did, and did not do The Court recognised native title, and Meriam rights in most of the Murray Islands, subject to some particular Crown interests. The Native Title Act 1993 followed. This file does not pretend the decision",
+    "172": "Page 172. Case 13. CASE 13 · YEAR 10 · MABO AND TERRA NULLIUS, 1982–1992 · TEACHER Teacher Note NOTE This note is for the teacher. It is not a student page. The user’s name is kept off the student pages and off the app. What’s true about the opener The narrator is an invented Year 10 student. The q",
+    "173": "Page 173. Case 13. robmac10.github.io/mabo-case Super Sleuths: robmac10.github.io/mabo-case/#sleuth Mabo v Queensland (No 2) [1992] HCA 23; Mabo (No 1) [1988] HCA 69; Queensland Coast Islands Declaratory Act 1985; AIATSIS, “The Mabo Case”; National Museum of Australia, “Mabo decision”; Trevor Graha"
   },
   "pageCases": {
     "1": null,
@@ -1310,30 +1230,16 @@ window.BOOK = {
     "170": 13,
     "171": 13,
     "172": 13,
-    "173": 13,
-    "174": 13,
-    "175": 14,
-    "176": 14,
-    "177": 14,
-    "178": 14,
-    "179": 14,
-    "180": 14,
-    "181": 14,
-    "182": 14,
-    "183": 14,
-    "184": 14,
-    "185": 14,
-    "186": 14,
-    "187": 14
+    "173": 13
   },
   "legacyCases": {
     "23": 4,
     "24": 2,
     "35": 11,
     "37": 12,
-    "41": 13,
     "42": 1,
     "43": 3,
-    "44": 14
+    "14": 13,
+    "44": 13
   }
 };
