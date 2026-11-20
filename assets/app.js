@@ -130,7 +130,7 @@
       '<a class="start-card" href="#p=' + start.page + '">' +
         '<img src="assets/thumbs/p' + pad(start.page) + '.webp" width="420" alt="Start here: In Case of Emergency.">' +
         "<div><strong>" + escapeHtml(start.title) + "</strong>" +
-        "<p>" + escapeHtml(start.blurb) + " Then open Case " + start.case + ".</p></div></a>"
+        "<p>" + escapeHtml(start.blurb) + " Then open the case file.</p></div></a>"
     );
     const written = BOOK.cases.filter((c) => c.written);
     // Chronological case order (the printed book order)
@@ -141,7 +141,7 @@
       const href = isStartCase(c) ? "#p=" + (c.envelope || (start.page + 1)) : "#p=" + c.start;
       bits.push(
         '<a href="' + href + '"><img src="' + thumb + '" alt="">' +
-        "<span>Case " + c.num + " · " + escapeHtml(yearLabel(c)) + "<br>" + escapeHtml(c.title) + "</span></a>"
+        "<span>" + escapeHtml(yearLabel(c)) + "<br>" + escapeHtml(c.title) + "</span></a>"
       );
     });
     host.innerHTML = bits.join("");
@@ -195,7 +195,7 @@
           .map((a) => '<span class="badge app">' + escapeHtml(a.label) + "</span>")
           .join("");
         const inner =
-          '<span class="case-num">' + c.num + "</span>" +
+          '<span class="case-num" aria-hidden="true">◆</span>' +
           "<div><h3>" + escapeHtml(c.title) + "</h3>" +
           '<p class="q">' + escapeHtml(c.question) + "</p>" +
           '<p class="meta">' + statusBadge(c) + consult + apps +
@@ -245,13 +245,13 @@
             '<option value="p-' + s.page + '">Start here: In Case of Emergency (p. ' + s.page + ')</option>'
           );
           opts.push(
-            '<option value="p-' + env + '">Case ' + c.num + " · " + escapeHtml(c.title) + " (p. " + env + ")</option>"
+            '<option value="p-' + env + '">' + escapeHtml(c.title) + " (p. " + env + ")</option>"
           );
         } else if (isStartCase(c)) {
           // already listed under its primary year
         } else {
           opts.push(
-            '<option value="p-' + c.start + '">Case ' + c.num + " · " +
+            '<option value="p-' + c.start + '">' +
               escapeHtml(c.title) + " (p. " + c.start + ")</option>"
           );
         }
@@ -384,11 +384,11 @@
         "Open the escape room →</a>"
       );
       bits.push(
-        '<a class="secondary" href="#p=' + (caseByNum(BOOK.startHere.case).envelope || (BOOK.startHere.page + 1)) + '">Then open Case ' + BOOK.startHere.case + ' →</a>'
+        '<a class="secondary" href="#p=' + (caseByNum(BOOK.startHere.case).envelope || (BOOK.startHere.page + 1)) + '">Then open the case file →</a>'
       );
     } else if (cnum) {
       const c = caseByNum(cnum);
-      bits.push('<span class="case-chip">Case ' + c.num + " · " + escapeHtml(yearLabel(c)) + " · " + escapeHtml(c.title) + "</span>");
+      bits.push('<span class="case-chip">' + escapeHtml(yearLabel(c)) + " · " + escapeHtml(c.title) + "</span>");
       (c.apps || []).forEach((app) => {
         const onPage = !app.pages || app.pages.indexOf(page) !== -1;
         const cls = onPage ? "" : ' class="secondary"';
@@ -424,7 +424,7 @@
     ensureTexts(() => {
       const rec = pageTexts[page] || {};
       const raw = (rec.text || "").trim();
-      const heading = "Page " + page + (rec.case ? " · Case " + rec.case : "");
+      const heading = "Page " + page;
       $("text-article").textContent = heading + "\n\n" + (raw || alt(page) + "\n\nNo printable text was extracted from this page. It may be a cover or envelope illustration.");
     });
   }
