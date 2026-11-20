@@ -170,7 +170,7 @@
       chunks.push(
         '<section class="year-block y' + year + '" aria-labelledby="year-' + year + '">' +
         '<h2 class="year-label" id="year-' + year + '"><b>Year ' + year + "</b>" +
-        "<span>" + (list.length ? (list.length + " cases · " + writtenN + " written") : "No cases in this sample") + "</span></h2>" +
+        "<span>" + (list.length ? (list.length + (list.length === 1 ? " case · " : " cases · ") + writtenN + " written") : "No cases in this sample") + "</span></h2>" +
         '<ul class="case-list">'
       );
       if (!list.length) {
