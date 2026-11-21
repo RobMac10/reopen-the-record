@@ -188,9 +188,7 @@
             '<div class="side"><span class="open">Open page ' + s.page + " →</span></div></a></li>"
           );
         }
-        const consult = hasConsult(c)
-          ? '<span class="badge consult">Draft, pending consultation</span>'
-          : "";
+        const consult = "";
         const apps = (c.apps || [])
           .map((a) => '<span class="badge app">' + escapeHtml(a.label) + "</span>")
           .join("");
