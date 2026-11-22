@@ -130,6 +130,18 @@ main{min-height:calc(100dvh - 8rem)}
 .start-card p{margin:.2em 0 0;color:var(--muted);font-size:.95rem}
 
 /* contents */
+.bias-lead{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;
+  background:#fff6e0;border:2px solid #8b3a1e;border-radius:14px;
+  padding:14px 16px;margin:0 0 1.4em;
+}
+.bias-lead-btn{
+  font:700 1rem/1.2 system-ui,sans-serif;
+  background:#8b3a1e;color:#fff;text-decoration:none;
+  padding:10px 16px;border-radius:999px;white-space:nowrap;
+}
+.bias-lead-btn:hover{background:#652430;color:#fff}
+.bias-lead span{margin:0;color:var(--muted);font-size:.98rem;flex:1 1 14rem}
 .contents-intro{max-width:46em;margin-bottom:1.5em}
 .year-block{margin:2em 0}
 .year-label{
