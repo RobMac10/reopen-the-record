@@ -143,14 +143,10 @@
     if (!host || host.dataset.ready) return;
     const chunks = [];
     const stories = BOOK.storyApps || [];
-    // Coloured tabs: one for the story apps, one per cold-case year level.
-    const tabs = [];
+    // Three coloured tabs: the Bias Button app, the story apps, the cold cases.
+    const tabs = ['<a class="ctab tab-bias" href="https://robmac10.github.io/bias-button/">Bias Button</a>'];
     if (stories.length) tabs.push('<a class="ctab ys" href="#contents" data-jump="part-stories">Story apps</a>');
-    YEAR_ORDER.forEach((year) => {
-      const has = BOOK.cases.some((c) => caseYears(c).indexOf(year) !== -1) ||
-        (BOOK.appCases || []).some((c) => c.year === year);
-      if (has) tabs.push('<a class="ctab y' + year + '" href="#contents" data-jump="year-' + year + '">Year ' + year + "</a>");
-    });
+    tabs.push('<a class="ctab tab-cold" href="#contents" data-jump="part-cases">Cold case apps</a>');
     chunks.push('<nav class="contents-tabs" aria-label="Jump to a section of the contents">' + tabs.join("") + "</nav>");
     if (stories.length) {
       chunks.push(
@@ -174,8 +170,8 @@
       chunks.push("</ul></section>");
     }
     chunks.push(
-      '<section class="contents-part" aria-labelledby="part-cases">' +
-      '<h2 class="part-title" id="part-cases">Cold cases</h2>' +
+      '<section class="contents-part cold" aria-labelledby="part-cases">' +
+      '<h2 class="part-title" id="part-cases" tabindex="-1">Cold cases</h2>' +
       '<p class="part-note">The case files in the book, by year level, in date order within each year.</p>'
     );
     YEAR_ORDER.forEach((year) => {

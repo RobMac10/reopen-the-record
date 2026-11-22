@@ -19,6 +19,7 @@
   --year9:#8a3d5c;
   --year10:#1f4f5c;
   --story:#2c3e6b;
+  --cold:#24594f;
   --safe-top:env(safe-area-inset-top,0px);
   --safe-bot:env(safe-area-inset-bottom,0px);
   --header-h:3.4rem;
@@ -449,9 +450,11 @@ a.case-row[target] .side .codes{white-space:nowrap}
 .part-title,.year-label{scroll-margin-top:96px}
 .part-title:focus,.year-label:focus{outline:none}
 .contents-part.ys > .part-title{border-bottom:4px solid var(--story);padding-bottom:.15em}
+.contents-part.cold > .part-title{border-bottom:4px solid var(--cold);padding-bottom:.15em}
+.ctab.tab-bias{background:#8b3a1e}
+.ctab.tab-cold{background:var(--cold)}
 @media (max-width:600px){
   .contents-tabs{gap:5px}
-  .ctab{flex:1 1 calc(25% - 5px);justify-content:center;padding:8px 6px;font-size:.84rem}
-  .ctab.ys{flex-basis:100%}
+  .ctab{flex:1 1 0;justify-content:center;text-align:center;padding:8px 6px;font-size:.86rem}
   .part-title,.year-label{scroll-margin-top:120px}
 }
