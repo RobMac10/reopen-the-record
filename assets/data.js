@@ -2156,6 +2156,16 @@ window.BOOK = {
       "blurb": "Mabo, the Native Title Act, Wik, the Northern Territory Emergency Response and the Apology, 1982 to 2008.",
       "url": "https://robmac10.github.io/native-title/",
       "label": "robmac10.github.io/native-title"
+    },
+    {
+      "id": "record-still-open",
+      "title": "The Record Is Still Open",
+      "year": 10,
+      "span": "2017–2025",
+      "codes": "",
+      "blurb": "The 2017 Convention, the 2023 referendum, 1967 and 2023, and the Yoorrook Justice Commission, from the official records.",
+      "url": "https://robmac10.github.io/record-still-open/",
+      "label": "robmac10.github.io/record-still-open"
     }
   ],
   "appCases": [
