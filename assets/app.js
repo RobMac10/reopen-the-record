@@ -160,23 +160,69 @@
     return '<span class="badge soon">' + label + "</span>";
   }
 
+  function caseSortKey(c) {
+    // Book order is chronological within each year level.
+    return typeof c.sort === "number" ? c.sort : c.num;
+  }
+
   function renderContents() {
     const host = $("contents-list");
     if (!host || host.dataset.ready) return;
     const chunks = [];
+    const stories = BOOK.storyApps || [];
+    if (stories.length) {
+      chunks.push(
+        '<section class="contents-part" aria-labelledby="part-stories">' +
+        '<h2 class="part-title" id="part-stories">The story apps</h2>' +
+        '<p class="part-note">Companions from the four-book series, in the order of the history they cover.</p>' +
+        '<ul class="case-list">'
+      );
+      stories.forEach((s) => {
+        chunks.push(
+          '<li><a class="case-row story y' + s.year + '" href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener">' +
+          '<span class="case-num" aria-hidden="true">◇</span>' +
+          '<div><p class="span">' + escapeHtml(s.span) + "</p>" +
+          "<h3>" + escapeHtml(s.title) + "</h3>" +
+          '<p class="q">' + escapeHtml(s.blurb) + "</p>" +
+          '<p class="meta"><span class="badge app">Story app</span><span class="badge year">Year ' + s.year + "</span>" +
+          '<span class="codes">' + escapeHtml(s.codes) + "</span></p></div>" +
+          '<div class="side"><span class="open">Open the app ↗</span><span class="codes">' + escapeHtml(s.label) + "</span></div></a></li>"
+        );
+      });
+      chunks.push("</ul></section>");
+    }
+    chunks.push(
+      '<section class="contents-part" aria-labelledby="part-cases">' +
+      '<h2 class="part-title" id="part-cases">Cold cases</h2>' +
+      '<p class="part-note">The case files in the book, by year level, in date order within each year.</p>'
+    );
     YEAR_ORDER.forEach((year) => {
-      const list = BOOK.cases.filter((c) => caseYears(c).indexOf(year) !== -1);
-      const writtenN = list.filter((c) => c.written).length;
+      const list = BOOK.cases
+        .filter((c) => caseYears(c).indexOf(year) !== -1)
+        .concat((BOOK.appCases || []).filter((c) => c.year === year).map((c) => Object.assign({ appCase: true }, c)))
+        .sort((a, b) => caseSortKey(a) - caseSortKey(b));
       chunks.push(
         '<section class="year-block y' + year + '" aria-labelledby="year-' + year + '">' +
-        '<h2 class="year-label" id="year-' + year + '"><b>Year ' + year + "</b>" +
-        "<span>" + (list.length ? (list.length + (list.length === 1 ? " case · " : " cases · ") + writtenN + " written") : "No cases in this sample") + "</span></h2>" +
+        '<h3 class="year-label" id="year-' + year + '"><b>Year ' + year + "</b></h3>" +
         '<ul class="case-list">'
       );
       if (!list.length) {
         chunks.push('<li><div class="case-row soon y' + year + '"><div><p>No cases in this sample.</p></div></div></li>');
       }
       list.forEach((c) => {
+        if (c.appCase) {
+          // A cold case published as an app, not printed in this book.
+          chunks.push(
+            '<li><a class="case-row y' + year + '" href="' + escapeHtml(c.url) + '" target="_blank" rel="noopener">' +
+            '<span class="case-num" aria-hidden="true">◆</span>' +
+            "<div><h3>" + escapeHtml(c.title) + "</h3>" +
+            '<p class="q">' + escapeHtml(c.question) + "</p>" +
+            '<p class="meta"><span class="badge app">Case app</span>' +
+            '<span class="codes">' + escapeHtml(c.codes) + "</span></p></div>" +
+            '<div class="side"><span class="open">Open the case app ↗</span><span class="codes">' + escapeHtml(c.label) + "</span></div></a></li>"
+          );
+          return;
+        }
         if (isStartCase(c)) {
           const s = BOOK.startHere;
           chunks.push(
@@ -188,7 +234,6 @@
             '<div class="side"><span class="open">Open page ' + s.page + " →</span></div></a></li>"
           );
         }
-        const consult = "";
         const apps = (c.apps || [])
           .map((a) => '<span class="badge app">' + escapeHtml(a.label) + "</span>")
           .join("");
@@ -196,7 +241,7 @@
           '<span class="case-num" aria-hidden="true">◆</span>' +
           "<div><h3>" + escapeHtml(c.title) + "</h3>" +
           '<p class="q">' + escapeHtml(c.question) + "</p>" +
-          '<p class="meta">' + statusBadge(c) + consult + apps +
+          '<p class="meta">' + statusBadge(c) + apps +
           (c.codes ? '<span class="codes">' + escapeHtml(c.codes) + "</span>" : "") +
           "</p></div>";
         if (c.written) {
@@ -214,27 +259,9 @@
           );
         }
       });
-      chunks.push("</ul>");
-      const stories = (BOOK.storyApps || []).filter((s) => s.year === year);
-      if (stories.length) {
-        chunks.push(
-          '<h3 class="story-label">Story apps <span>Companions from the four-book series, not case files</span></h3>' +
-          '<ul class="case-list story-list">'
-        );
-        stories.forEach((s) => {
-          chunks.push(
-            '<li><a class="case-row story y' + year + '" href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener">' +
-            '<span class="case-num" aria-hidden="true">◇</span>' +
-            "<div><h3>" + escapeHtml(s.title) + "</h3>" +
-            '<p class="q">' + escapeHtml(s.blurb) + "</p>" +
-            '<p class="meta"><span class="badge app">Story app</span><span class="codes">' + escapeHtml(s.codes) + "</span></p></div>" +
-            '<div class="side"><span class="open">' + escapeHtml(s.label) + " ↗</span></div></a></li>"
-          );
-        });
-        chunks.push("</ul>");
-      }
-      chunks.push("</section>");
+      chunks.push("</ul></section>");
     });
+    chunks.push("</section>");
     host.innerHTML = chunks.join("");
     host.dataset.ready = "1";
   }
@@ -249,7 +276,7 @@
     opts.push('<option value="p-2">Title page (p. 2)</option>');
     opts.push('<option value="p-3">How a case file works (p. 3)</option>');
     opts.push('<option value="p-4">Printed contents (p. 4)</option>');
-    opts.push('<option value="p-6">By year level (p. 6)</option>');
+    opts.push('<option value="p-7">By year level (p. 7)</option>');
     YEAR_ORDER.forEach((year) => {
       const list = BOOK.cases.filter((c) => c.written && caseYears(c).indexOf(year) !== -1);
       if (!list.length) return;
