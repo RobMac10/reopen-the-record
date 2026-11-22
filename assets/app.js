@@ -214,7 +214,26 @@
           );
         }
       });
-      chunks.push("</ul></section>");
+      chunks.push("</ul>");
+      const stories = (BOOK.storyApps || []).filter((s) => s.year === year);
+      if (stories.length) {
+        chunks.push(
+          '<h3 class="story-label">Story apps <span>Companions from the four-book series, not case files</span></h3>' +
+          '<ul class="case-list story-list">'
+        );
+        stories.forEach((s) => {
+          chunks.push(
+            '<li><a class="case-row story y' + year + '" href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener">' +
+            '<span class="case-num" aria-hidden="true">◇</span>' +
+            "<div><h3>" + escapeHtml(s.title) + "</h3>" +
+            '<p class="q">' + escapeHtml(s.blurb) + "</p>" +
+            '<p class="meta"><span class="badge app">Story app</span><span class="codes">' + escapeHtml(s.codes) + "</span></p></div>" +
+            '<div class="side"><span class="open">' + escapeHtml(s.label) + " ↗</span></div></a></li>"
+          );
+        });
+        chunks.push("</ul>");
+      }
+      chunks.push("</section>");
     });
     host.innerHTML = chunks.join("");
     host.dataset.ready = "1";
