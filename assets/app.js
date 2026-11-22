@@ -143,16 +143,25 @@
     if (!host || host.dataset.ready) return;
     const chunks = [];
     const stories = BOOK.storyApps || [];
+    // Coloured tabs: one for the story apps, one per cold-case year level.
+    const tabs = [];
+    if (stories.length) tabs.push('<a class="ctab ys" href="#contents" data-jump="part-stories">Story apps</a>');
+    YEAR_ORDER.forEach((year) => {
+      const has = BOOK.cases.some((c) => caseYears(c).indexOf(year) !== -1) ||
+        (BOOK.appCases || []).some((c) => c.year === year);
+      if (has) tabs.push('<a class="ctab y' + year + '" href="#contents" data-jump="year-' + year + '">Year ' + year + "</a>");
+    });
+    chunks.push('<nav class="contents-tabs" aria-label="Jump to a section of the contents">' + tabs.join("") + "</nav>");
     if (stories.length) {
       chunks.push(
-        '<section class="contents-part" aria-labelledby="part-stories">' +
-        '<h2 class="part-title" id="part-stories">The story apps</h2>' +
+        '<section class="contents-part ys" aria-labelledby="part-stories">' +
+        '<h2 class="part-title" id="part-stories" tabindex="-1">The story apps</h2>' +
         '<p class="part-note">Companions from the four-book series, in the order of the history they cover.</p>' +
         '<ul class="case-list">'
       );
       stories.forEach((s) => {
         chunks.push(
-          '<li><a class="case-row story y' + s.year + '" href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener">' +
+          '<li><a class="case-row story ys" href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener">' +
           '<span class="case-num" aria-hidden="true">◇</span>' +
           '<div><p class="span">' + escapeHtml(s.span) + "</p>" +
           "<h3>" + escapeHtml(s.title) + "</h3>" +
@@ -176,7 +185,7 @@
         .sort((a, b) => caseSortKey(a) - caseSortKey(b));
       chunks.push(
         '<section class="year-block y' + year + '" aria-labelledby="year-' + year + '">' +
-        '<h3 class="year-label" id="year-' + year + '"><b>Year ' + year + "</b></h3>" +
+        '<h3 class="year-label" id="year-' + year + '" tabindex="-1"><b>Year ' + year + "</b></h3>" +
         '<ul class="case-list">'
       );
       if (!list.length) {
@@ -237,6 +246,16 @@
     chunks.push("</section>");
     host.innerHTML = chunks.join("");
     host.dataset.ready = "1";
+    host.querySelectorAll("[data-jump]").forEach((tab) => {
+      tab.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.getElementById(tab.dataset.jump);
+        if (!target) return;
+        const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        target.focus({ preventScroll: true });
+      });
+    });
   }
 
   function fillJump() {
