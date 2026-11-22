@@ -105,8 +105,6 @@ main{min-height:calc(100dvh - 8rem)}
 .cover-qr img{width:112px;height:112px;background:#fff;padding:6px;border:1px solid var(--rule);border-radius:8px}
 .cover-qr p{margin:0;font-size:.95rem;color:var(--muted);max-width:22em}
 .note{font-size:.95rem;color:var(--muted);line-height:1.55}
-.written-strip{margin-top:40px}
-.written-strip h2{font-size:1.4rem;color:var(--brick);border-bottom:2px solid var(--rule);padding-bottom:.25em}
 .strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
 .strip a{
   display:block;background:var(--card);border:1px solid var(--rule);border-radius:10px;

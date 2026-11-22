@@ -121,33 +121,6 @@
     });
   }
 
-  function renderWrittenStrip() {
-    const host = $("written-strip");
-    if (!host || host.dataset.ready) return;
-    const start = BOOK.startHere;
-    const bits = [];
-    bits.push(
-      '<a class="start-card" href="#p=' + start.page + '">' +
-        '<img src="assets/thumbs/p' + pad(start.page) + '.webp" width="420" alt="Start here: In Case of Emergency.">' +
-        "<div><strong>" + escapeHtml(start.title) + "</strong>" +
-        "<p>" + escapeHtml(start.blurb) + " Then open the case file.</p></div></a>"
-    );
-    const written = BOOK.cases.filter((c) => c.written);
-    // Chronological case order (the printed book order)
-    written.sort((a, b) => a.num - b.num);
-    written.forEach((c) => {
-      const thumbPage = isStartCase(c) ? (c.envelope || (start.page + 1)) : c.envelope || c.start;
-      const thumb = "assets/thumbs/p" + pad(thumbPage) + ".webp";
-      const href = isStartCase(c) ? "#p=" + (c.envelope || (start.page + 1)) : "#p=" + c.start;
-      bits.push(
-        '<a href="' + href + '"><img src="' + thumb + '" alt="">' +
-        "<span>" + escapeHtml(yearLabel(c)) + "<br>" + escapeHtml(c.title) + "</span></a>"
-      );
-    });
-    host.innerHTML = bits.join("");
-    host.dataset.ready = "1";
-  }
-
   function statusBadge(c) {
     if (c.written) return '<span class="badge written">Written</span>';
     const label = {
@@ -480,7 +453,6 @@
     navCurrent();
     document.body.classList.toggle("is-reader", view === "reader");
     setTitle();
-    if (view === "cover") renderWrittenStrip();
     if (view === "contents") renderContents();
     if (view === "reader") {
       renderReader();
