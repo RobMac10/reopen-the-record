@@ -728,7 +728,13 @@ window.BOOK = {
       "start": 66,
       "end": 80,
       "envelope": 66,
-      "apps": []
+      "apps": [],
+      "coverStory": {
+        "id": "blue-mountains",
+        "title": "Crossing the Blue Mountains: a story",
+        "blurb": "Historical fiction, not a record. The 1813 crossing, told from the journals and the settlers’ point of view.",
+        "hash": "#story=blue-mountains"
+      }
     },
     {
       "num": 6,

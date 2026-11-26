@@ -1,0 +1,41 @@
+/* Cover-story opener, used by the Blue Mountains case. Images fit the screen and tap to enlarge. */
+.story-page{max-width:42rem;padding:1.25rem 1.25rem 3.5rem;color:var(--ink)}
+.story-page .kicker{margin:0 0 .35rem;letter-spacing:.08em;text-transform:uppercase;font:700 .75rem/1.3 system-ui,sans-serif;color:#7a5a22}
+.story-page .label{display:inline-block;margin:0 0 1rem;padding:.25rem .6rem;border:1.5px solid var(--brick,#8f3a1e);border-radius:999px;font:700 .8rem/1.2 system-ui,sans-serif;color:var(--brick,#8f3a1e)}
+.story-page h1{font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.12;margin:0 0 .6rem}
+.story-page .lead{font-size:1.12rem;margin:0 0 1.2rem}
+.story-page .advisory{font-size:.92rem;color:var(--muted);margin:0 0 1.5rem}
+.story-page .scene{margin:2.2rem 0}
+.story-page .scene h2{font-size:1.45rem;margin:0 0 .7rem}
+.story-page p{margin:0 0 .9rem}
+.story-page figure{margin:1rem 0 1.2rem}
+.story-page figure img{
+  display:block;width:100%;height:auto;max-height:min(70vh,32rem);object-fit:contain;
+  background:#efe4cd;border-radius:8px;cursor:zoom-in;
+}
+.story-page figcaption{margin:.45rem 0 0;font-size:.88rem;color:var(--muted)}
+.story-page blockquote{
+  margin:0 0 1rem;padding:0 0 0 .9rem;border-left:3px solid #b8892a;
+  font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:1.12rem;
+}
+.story-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.6rem 0 2.2rem}
+.story-page .truth{display:grid;gap:1rem;margin:1.2rem 0 1.6rem}
+@media (min-width:720px){.story-page .truth{grid-template-columns:1fr 1fr}}
+.story-page .truth div{background:#fff;border:1px solid var(--rule,#d8c9a6);border-radius:12px;padding:1rem 1.1rem}
+.story-page .truth h3{margin:0 0 .5rem;font-size:1.15rem}
+.story-page .truth ul{margin:0;padding:0 0 0 1.1rem}
+.story-page .truth li{margin:0 0 .45rem}
+.story-page .country{font-size:.95rem;color:var(--ink)}
+.story-page .fine{font-size:.88rem;color:var(--muted);margin:1.2rem 0 0}
+#story-zoom[hidden]{display:none}
+#story-zoom{
+  position:fixed;inset:0;z-index:80;background:#1a140eeb;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:3rem 1rem 1.5rem;
+}
+#story-zoom img{max-width:100%;max-height:100%;object-fit:contain}
+#story-zoom .lb-close{
+  position:absolute;top:.6rem;right:.8rem;width:2.6rem;height:2.6rem;
+  border:0;border-radius:999px;background:#fff;color:#1a140e;font-size:1.6rem;cursor:pointer;
+}
+.story-page .story-img{display:block;width:100%;margin:0;padding:0;border:0;background:transparent;cursor:zoom-in;border-radius:8px}

@@ -16,10 +16,12 @@
     cover: $("view-cover"),
     contents: $("view-contents"),
     reader: $("view-reader"),
+    story: $("view-story"),
   };
 
   let page = 1;
   let view = "cover";
+  let storyId = null;
   let textMode = false;
   let spread = false;
   let pageTexts = null;
@@ -53,6 +55,12 @@
   function isStartCase(c) {
     return !!(c && BOOK.startHere && c.num === BOOK.startHere.case);
   }
+  function coverStoryOf(c) {
+    return c && c.coverStory ? c.coverStory : null;
+  }
+  function caseByCoverStory(id) {
+    return BOOK.cases.find((c) => c.coverStory && c.coverStory.id === id);
+  }
   function resolveCaseNum(n) {
     n = Number(n);
     if (caseByNum(n)) return n;
@@ -73,9 +81,15 @@
     if (raw === "contents" || raw === "toc") return { view: "contents" };
     let m = raw.match(/^(?:p|page)=(\d+)/i);
     if (m) return { view: "reader", page: clamp(m[1]) };
+    m = raw.match(/^story=([a-z0-9-]+)/i);
+    if (m) {
+      const c = caseByCoverStory(m[1].toLowerCase());
+      if (c) return { view: "story", story: c.coverStory.id, page: c.start };
+    }
     m = raw.match(/^case=(\d+)/i);
     if (m) {
       const c = caseByNum(resolveCaseNum(m[1]));
+      if (c && c.written && coverStoryOf(c)) return { view: "story", story: c.coverStory.id, page: c.start };
       if (c && c.written) return { view: "reader", page: c.start };
       if (c) return { view: "contents" };
     }
@@ -85,6 +99,7 @@
   function hashFor(next) {
     if (next.view === "cover") return "#cover";
     if (next.view === "contents") return "#contents";
+    if (next.view === "story") return "#story=" + (next.story || storyId || "blue-mountains");
     return "#p=" + next.page;
   }
 
@@ -93,7 +108,8 @@
     const was = { view: view, page: page };
     view = next.view;
     if (next.page) page = clamp(next.page);
-    const hash = hashFor({ view, page });
+    if (next.story) storyId = next.story;
+    const hash = hashFor({ view, page, story: storyId });
     const url = location.pathname + location.search + hash;
     if (location.hash !== hash) {
       if (push) history.pushState({ view, page }, "", url);
@@ -110,7 +126,10 @@
     const base = BOOK.bookTitle;
     if (view === "cover") document.title = base;
     else if (view === "contents") document.title = "Contents · " + base;
-    else document.title = "Page " + page + " · " + base;
+    else if (view === "story") {
+      const c = caseByCoverStory(storyId);
+      document.title = ((c && c.coverStory && c.coverStory.title) || "Cover story") + " · " + base;
+    } else document.title = "Page " + page + " · " + base;
   }
 
   function navCurrent() {
@@ -213,6 +232,17 @@
             '<div class="side"><span class="open">Open page ' + s.page + " →</span></div></a></li>"
           );
         }
+        const cover = coverStoryOf(c);
+        if (cover) {
+          chunks.push(
+            '<li><a class="start-row" href="' + escapeHtml(cover.hash) + '">' +
+            '<img src="assets/story/blue-mountains/ridge.webp" width="72" alt="">' +
+            "<div><h3>" + escapeHtml(cover.title) + "</h3>" +
+            "<p>" + escapeHtml(cover.blurb) + "</p>" +
+            '<p class="meta"><span class="badge app">Cover story</span></p></div>' +
+            '<div class="side"><span class="open">Open the cover story →</span></div></a></li>'
+          );
+        }
         const apps = (c.apps || [])
           .map((a) => '<span class="badge app">' + escapeHtml(a.label) + "</span>")
           .join("");
@@ -304,6 +334,12 @@
         } else if (isStartCase(c)) {
           // already listed under its primary year
         } else {
+          if (coverStoryOf(c)) {
+            opts.push(
+              '<option value="story-' + c.coverStory.id + '">' +
+                escapeHtml(c.coverStory.title) + "</option>"
+            );
+          }
           opts.push(
             '<option value="p-' + c.start + '">' +
               escapeHtml(c.title) + " (p. " + c.start + ")</option>"
@@ -319,6 +355,11 @@
   function syncJump() {
     const sel = $("jump");
     if (!sel) return;
+    if (view === "story" && storyId) {
+      const sv = "story-" + storyId;
+      if (Array.from(sel.options).some((o) => o.value === sv)) sel.value = sv;
+      return;
+    }
     const want = "p-" + page;
     const exact = Array.from(sel.options).some((o) => o.value === want);
     if (exact) sel.value = want;
@@ -443,6 +484,9 @@
     } else if (cnum) {
       const c = caseByNum(cnum);
       bits.push('<span class="case-chip">' + escapeHtml(yearLabel(c)) + " · " + escapeHtml(c.title) + "</span>");
+      if (coverStoryOf(c)) {
+        bits.push('<a class="secondary" href="' + escapeHtml(c.coverStory.hash) + '">Cover story →</a>');
+      }
       (c.apps || []).forEach((app) => {
         const onPage = !app.pages || app.pages.indexOf(page) !== -1;
         const cls = onPage ? "" : ' class="secondary"';
@@ -487,8 +531,10 @@
     views.cover.hidden = view !== "cover";
     views.contents.hidden = view !== "contents";
     views.reader.hidden = view !== "reader";
+    if (views.story) views.story.hidden = view !== "story";
     navCurrent();
     document.body.classList.toggle("is-reader", view === "reader");
+    document.body.classList.toggle("is-story", view === "story");
     setTitle();
     if (view === "contents") renderContents();
     if (view === "reader") {
@@ -739,6 +785,7 @@
     const v = $("jump").value;
     if (v === "cover") go({ view: "cover" }, { push: true });
     else if (v === "contents") go({ view: "contents" }, { push: true });
+    else if (v.indexOf("story-") === 0) go({ view: "story", story: v.slice(6) }, { push: true });
     else if (v.indexOf("p-") === 0) go({ view: "reader", page: Number(v.slice(2)) }, { push: true });
   });
 
@@ -945,13 +992,15 @@
     const next = parseHash();
     view = next.view;
     if (next.page) page = next.page;
+    if (next.story) storyId = next.story;
     render();
   });
   window.addEventListener("hashchange", () => {
     const next = parseHash();
-    if (next.view !== view || (next.page && next.page !== page)) {
+    if (next.view !== view || (next.page && next.page !== page) || (next.story && next.story !== storyId)) {
       view = next.view;
       if (next.page) page = next.page;
+      if (next.story) storyId = next.story;
       render();
     }
   });
@@ -982,10 +1031,43 @@
   const first = parseHash();
   view = first.view;
   if (first.page) page = first.page;
+  if (first.story) storyId = first.story;
   render();
   // Warm nearby images if we landed in the reader
   if (view === "reader") {
     preload(page - 1);
     preload(page + 1);
   }
+
+  const storyZoom = $("story-zoom");
+  const storyZoomImg = $("story-zoom-img");
+  function closeStoryZoom() {
+    if (!storyZoom) return;
+    storyZoom.hidden = true;
+    if (storyZoomImg) { storyZoomImg.removeAttribute("src"); storyZoomImg.alt = ""; }
+  }
+  if ($("view-story")) {
+    $("view-story").addEventListener("click", (e) => {
+      const btn = e.target.closest(".story-img");
+      if (!btn || !storyZoom || !storyZoomImg) return;
+      const img = btn.querySelector("img");
+      if (!img) return;
+      storyZoomImg.src = img.currentSrc || img.src;
+      storyZoomImg.alt = img.alt || "";
+      storyZoom.hidden = false;
+    });
+  }
+  if ($("story-zoom-close")) $("story-zoom-close").addEventListener("click", closeStoryZoom);
+  if (storyZoom) {
+    storyZoom.addEventListener("click", (e) => {
+      if (e.target === storyZoom) closeStoryZoom();
+    });
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && storyZoom && !storyZoom.hidden) {
+      e.preventDefault();
+      closeStoryZoom();
+    }
+  });
+
 })();
