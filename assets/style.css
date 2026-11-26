@@ -480,3 +480,8 @@ a.case-row[target] .side .codes{white-space:nowrap}
 .ref-source{font-size:.8rem;color:#5a4a38;margin-top:8px}
 .ref-case{margin-top:6px}
 .ref-case a{font-weight:600;color:#8b3a1e}
+
+/* Back to the top of the casebook Contents */
+.back-to-top{margin:2.4em 0 0;padding-top:1.2em;border-top:1px solid var(--rule,#d9cbb3)}
+.back-to-top a{color:inherit;font-size:.95rem}
+.back-to-top a:hover,.back-to-top a:focus{text-decoration:underline}

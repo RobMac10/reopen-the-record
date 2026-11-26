@@ -273,8 +273,20 @@
         '<p class="ref-source">Source: ' + escapeHtml(R.source) + "</p></section>"
       );
     }
+    chunks.push('<p class="back-to-top"><a href="#contents-title">Back to the top of the contents</a></p>');
     host.innerHTML = chunks.join("");
     host.dataset.ready = "1";
+    const back = host.querySelector(".back-to-top a");
+    if (back) {
+      back.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.getElementById("contents-title") || $("view-contents");
+        if (!target) return;
+        const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        target.focus({ preventScroll: true });
+      });
+    }
     host.querySelectorAll("[data-jump]").forEach((tab) => {
       tab.addEventListener("click", (e) => {
         e.preventDefault();
