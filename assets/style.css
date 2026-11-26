@@ -75,6 +75,13 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
   padding:8px 12px;border-radius:8px;border:1px solid transparent;color:#fbf3e6;
 }
 .site-header nav a:hover,.site-header nav a[aria-current="page"]{background:#ffffff22}
+.care-banner{
+  margin:8px auto 0;max-width:1120px;
+  padding:0;
+  color:#fbf3e6;
+  font:500 .82rem/1.4 system-ui,sans-serif;
+  text-align:left;
+}
 .btn{background:var(--brick);border:2px solid var(--brick);color:#fff}
 .btn:hover{background:#652430;border-color:#652430;color:#fff}
 .btn.alt{background:#fff;color:var(--link);border-color:var(--link)}
@@ -365,7 +372,8 @@ footer.site p{margin:0}
   .stage.spread-on{padding-left:48px;padding-right:48px}
 }
 @media (max-height:520px){
-  body.is-reader .site-header{display:none}
+  body.is-reader .site-header .bar{display:none}
+  body.is-reader .site-header{padding-top:calc(var(--safe-top) + 4px);padding-bottom:6px}
   .fit-hint{display:none}
   .toolbar .inner{padding:4px 8px}
   .toolbar .wide-only{display:none}
