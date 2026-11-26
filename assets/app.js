@@ -10,6 +10,17 @@
   const BOOK = window.BOOK;
   const TOTAL = BOOK.pageCount;
   const YEAR_ORDER = [4, 5, 6, 7, 8, 9, 10];
+  // Casebook PDF pages 66-69 are the Blue Mountains cover story. They stay in the PDF only.
+  const OMITTED = { 66: 1, 67: 1, 68: 1, 69: 1 };
+  const AFTER_OMIT = 70;
+  const BEFORE_OMIT = 65;
+  function isOmitted(n) { return !!OMITTED[n]; }
+  function livePage(n, from) {
+    n = clamp(n);
+    if (!isOmitted(n)) return n;
+    if (from != null && from > n) return BEFORE_OMIT;
+    return AFTER_OMIT;
+  }
 
   const $ = (id) => document.getElementById(id);
   const views = {
@@ -34,7 +45,7 @@
     return "assets/pages/p" + pad(n) + ".webp";
   }
   function alt(n) {
-    return (BOOK.pageAlts && BOOK.pageAlts[n]) || ("Page " + n + " of " + BOOK.bookTitle);
+    return (BOOK.alts && BOOK.alts[String(n)]) || (BOOK.pageAlts && BOOK.pageAlts[n]) || ("Page " + n + " of " + BOOK.bookTitle);
   }
   function caseOn(n) {
     const raw = BOOK.pageCases && BOOK.pageCases[String(n)];
@@ -72,7 +83,7 @@
     if (!raw || raw === "cover" || raw === "/" || raw === "top") return { view: "cover" };
     if (raw === "contents" || raw === "toc") return { view: "contents" };
     let m = raw.match(/^(?:p|page)=(\d+)/i);
-    if (m) return { view: "reader", page: clamp(m[1]) };
+    if (m) return { view: "reader", page: livePage(m[1]) };
     m = raw.match(/^case=(\d+)/i);
     if (m) {
       const c = caseByNum(resolveCaseNum(m[1]));
@@ -92,7 +103,7 @@
     const push = opts && opts.push;
     const was = { view: view, page: page };
     view = next.view;
-    if (next.page) page = clamp(next.page);
+    if (next.page) page = livePage(next.page, page);
     const hash = hashFor({ view, page });
     const url = location.pathname + location.search + hash;
     if (location.hash !== hash) {
@@ -163,7 +174,7 @@
           '<div><p class="span">' + escapeHtml(s.span) + "</p>" +
           "<h3>" + escapeHtml(s.title) + "</h3>" +
           '<p class="q">' + escapeHtml(s.blurb) + "</p>" +
-          '<p class="meta"><span class="badge app">Story app</span><span class="badge year">Year ' + s.year + "</span>" +
+          '<p class="meta"><span class="badge app">Story app</span>' +
           '<span class="codes">' + escapeHtml(s.codes) + "</span></p></div>" +
           '<div class="side"><span class="open">Open the app ↗</span><span class="codes">' + escapeHtml(s.label) + "</span></div></a></li>"
         );
@@ -342,7 +353,7 @@
   }
 
   function preload(n) {
-    if (n < 1 || n > TOTAL) return;
+    if (n < 1 || n > TOTAL || isOmitted(n)) return;
     const img = new Image();
     img.src = src(n);
   }
@@ -442,7 +453,7 @@
       );
     } else if (cnum) {
       const c = caseByNum(cnum);
-      bits.push('<span class="case-chip">' + escapeHtml(yearLabel(c)) + " · " + escapeHtml(c.title) + "</span>");
+      bits.push('<span class="case-chip">' + escapeHtml(c.title) + "</span>");
       (c.apps || []).forEach((app) => {
         const onPage = !app.pages || app.pages.indexOf(page) !== -1;
         const cls = onPage ? "" : ' class="secondary"';
@@ -516,7 +527,7 @@
         next = Math.max(1, minNow - 1);
       }
     }
-    next = clamp(next);
+    next = livePage(next, page);
     if (next === page) return;
     if (!textMode && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       turning = true;
@@ -653,7 +664,7 @@
 
   function openLightbox(n) {
     if (textMode) return;
-    lbPage = clamp(n || page);
+    lbPage = livePage(n || page);
     lightboxOpen = true;
     document.body.classList.add("lb-open");
     $("lightbox").hidden = false;
@@ -696,7 +707,7 @@
   }
 
   function lbTurn(delta) {
-    const next = clamp(lbPage + delta);
+    const next = livePage(lbPage + delta, lbPage);
     if (next === lbPage) return;
     lbPage = next;
     page = next;
