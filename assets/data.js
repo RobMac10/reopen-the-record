@@ -1522,7 +1522,7 @@ window.BOOK = {
     }
   ],
   "alts": {
-    "1": "Book cover: a manila exhibit envelope titled Reopen the Record: Australian Histories, Years 4 to 10, stamped Case Reopened, with an exhibit tag reading Sample Cases, and year-level tabs along the right edge.",
+    "1": "Book cover: a manila exhibit envelope titled Reopen the Record: Australian Histories, stamped Case Reopened, with an exhibit tag.",
     "2": "Page 2. Reopen the Record HISTORY CASE FILES Australian Histories Real people. Real records. Real questions the record never settled. Australian Curriculum: History (v9) In chronological order, all written",
     "3": "How a case file works. The pattern for every case: an opener, three witnesses, a finding, and optional Super Sleuths.",
     "4": "Page 4. Contents The ten story apps from the four-book series come first, in the order of the history they cover. The cold cases follow in one book. The main sequence runs in chronological order of the",
