@@ -470,3 +470,5 @@ a.case-row[target] .side .codes{white-space:nowrap}
 .ref-date{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#6b5a45}
 .ref-why{font-style:italic}
 .ref-source{font-size:.8rem;color:#5a4a38;margin-top:8px}
+.ref-case{margin-top:6px}
+.ref-case a{font-weight:600;color:#8b3a1e}

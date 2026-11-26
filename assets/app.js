@@ -254,7 +254,9 @@
           "<h3>" + escapeHtml(x.name) + "</h3>" +
           '<p><b>Asked:</b> ' + escapeHtml(x.question) + "</p>" +
           '<p><b>Result:</b> ' + escapeHtml(x.result) + "</p>" +
-          '<p class="ref-why"><b>Why it matters:</b> ' + escapeHtml(x.why) + "</p></li>"
+          '<p class="ref-why"><b>Why it matters:</b> ' + escapeHtml(x.why) + "</p>" +
+          (x.page ? '<p class="ref-case"><a href="#p=' + x.page + '">Open the Anzac case, pages ' + x.page + "–" + ((caseByNum(x.case) || {}).end || x.page) + " →</a></p>" : "") +
+          "</li>"
         ).join("") +
         "</ol>" +
         '<p class="ref-source">Source: ' + escapeHtml(R.source) + "</p></section>"
