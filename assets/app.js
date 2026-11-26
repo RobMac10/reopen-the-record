@@ -147,6 +147,7 @@
     const tabs = ['<a class="ctab tab-bias" href="https://robmac10.github.io/bias-button/">Bias Button</a>'];
     if (stories.length) tabs.push('<a class="ctab ys" href="#contents" data-jump="part-stories">Story apps</a>');
     tabs.push('<a class="ctab tab-cold" href="#contents" data-jump="part-cases">Cold case apps</a>');
+    if (BOOK.referendums) tabs.push('<a class="ctab tab-ref" href="#contents" data-jump="part-ref">Referendums</a>');
     chunks.push('<nav class="contents-tabs" aria-label="Jump to a section of the contents">' + tabs.join("") + "</nav>");
     if (stories.length) {
       chunks.push(
@@ -240,6 +241,25 @@
       chunks.push("</ul></section>");
     });
     chunks.push("</section>");
+    if (BOOK.referendums) {
+      const R = BOOK.referendums;
+      chunks.push(
+        '<section class="contents-part ref" aria-labelledby="part-ref">' +
+        '<h2 class="part-title" id="part-ref" tabindex="-1">' + escapeHtml(R.title) + "</h2>" +
+        '<p class="part-note">' + escapeHtml(R.note) + "</p>" +
+        '<ol class="ref-list">' +
+        R.rows.map((x) =>
+          '<li class="ref-row' + (x.carried ? " carried" : "") + '">' +
+          '<p class="ref-date">' + escapeHtml(x.date) + "</p>" +
+          "<h3>" + escapeHtml(x.name) + "</h3>" +
+          '<p><b>Asked:</b> ' + escapeHtml(x.question) + "</p>" +
+          '<p><b>Result:</b> ' + escapeHtml(x.result) + "</p>" +
+          '<p class="ref-why"><b>Why it matters:</b> ' + escapeHtml(x.why) + "</p></li>"
+        ).join("") +
+        "</ol>" +
+        '<p class="ref-source">Source: ' + escapeHtml(R.source) + "</p></section>"
+      );
+    }
     host.innerHTML = chunks.join("");
     host.dataset.ready = "1";
     host.querySelectorAll("[data-jump]").forEach((tab) => {
