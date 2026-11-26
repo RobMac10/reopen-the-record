@@ -197,7 +197,7 @@
         '<ul class="case-list">'
       );
       if (!list.length) {
-        chunks.push('<li><div class="case-row soon y' + year + '"><div><p>No cases in this sample.</p></div></div></li>');
+        chunks.push('<li><div class="case-row soon y' + year + '"><div><p>No cases in this year.</p></div></div></li>');
       }
       list.forEach((c) => {
         if (c.appCase) {
