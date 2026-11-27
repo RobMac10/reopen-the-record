@@ -767,7 +767,13 @@ window.BOOK = {
       "start": 70,
       "end": 84,
       "envelope": 70,
-      "apps": []
+      "apps": [],
+      "coverStory": {
+        "id": "blue-mountains",
+        "title": "Climbing on Ancient Ground",
+        "blurb": "An interactive journal of the 1813 crossing, then the case file.",
+        "hash": "#story=blue-mountains"
+      }
     },
     {
       "num": 6,

@@ -14,8 +14,9 @@
   <meta property="og:url" content="https://robmac10.github.io/reopen-the-record/">
   <meta property="og:image" content="https://robmac10.github.io/reopen-the-record/assets/thumbs/p001.webp">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css?v=20261127c">
-  <link rel="stylesheet" href="assets/image-fit.css?v=20261127c">
+  <link rel="stylesheet" href="assets/style.css?v=20261127d">
+  <link rel="stylesheet" href="assets/image-fit.css?v=20261127d">
+  <link rel="stylesheet" href="assets/story.css?v=20261127d">
 </head>
 <body>
   <a class="skip" href="#main">Skip to the main content</a>
@@ -70,6 +71,28 @@
           <p class="note"><a href="#p=3">How a case file works</a> · <a href="#p=4">Printed contents</a> · <a href="#p=7">By year level</a></p>
         </div>
         <div id="contents-list"><!-- filled by app.js --></div>
+      </div>
+    </section>
+
+
+
+    <section id="view-story" aria-labelledby="story-title" hidden>
+      <div class="wrap">
+        <article class="story-card">
+          <p class="kicker">Crossing the Blue Mountains, 1813</p>
+          <h1 id="story-title">Climbing on Ancient Ground</h1>
+          <figure>
+            <button type="button" class="story-img" aria-label="Enlarge the painting of Grose Head">
+              <img src="assets/story/blue-mountains/evans-grose-head.jpg" width="1370" height="1018" alt="A View near Grose Head, New South Wales, 1809, by George William Evans. A wooded Blue Mountains gorge, with two small figures on rocks in the foreground.">
+            </button>
+            <figcaption>George William Evans, <cite>A View near Grose Head, New South Wales</cite>, 1809. State Library of New South Wales. Public domain.</figcaption>
+          </figure>
+          <p class="lead">An interactive journal of the 1813 crossing, drawn from Blaxland’s published account. The land they crossed was already Aboriginal Country.</p>
+          <div class="story-actions">
+            <a class="btn" href="https://robmac10.github.io/climbing-on-ancient-ground/" target="_blank" rel="noopener">Choose your path: the 1813 journey</a>
+            <a class="btn-file" href="#p=70">Go to the case file</a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -132,6 +155,12 @@
       <p class="lb-caption">Pinch or scroll to zoom · drag to pan · double-tap to zoom · Esc to close</p>
     </div>
 
+
+    <div id="story-zoom" hidden>
+      <button type="button" class="lb-close" id="story-zoom-close" aria-label="Close">×</button>
+      <img id="story-zoom-img" alt="">
+    </div>
+
   </main>
 
   <footer class="site">
@@ -142,7 +171,7 @@
     <p style="padding:1em;text-align:center">This book needs JavaScript to turn the pages. The intended address is https://robmac10.github.io/reopen-the-record/</p>
   </noscript>
 
-  <script src="assets/data.js?v=20261127c"></script>
-  <script src="assets/app.js?v=20261127c"></script>
+  <script src="assets/data.js?v=20261127d"></script>
+  <script src="assets/app.js?v=20261127d"></script>
 </body>
 </html>
